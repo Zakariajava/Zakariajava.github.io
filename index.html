@@ -199,6 +199,7 @@ h1.name .line2 {
 }
 .hero-contacts a:hover::after { color: var(--text); transform: translate(1px, -1px); }
 .hero-contacts a.mail::after { content: "→"; }
+.hero-contacts a.cv::after { content: "↓"; }
 
 /* ============ SECTIONS ============ */
 section {
@@ -678,6 +679,8 @@ section, header.hero { animation: fadeIn 0.6s ease both; }
         <a class="mail" href="mailto:zakariaabouhammadi@gmail.com">zakariaabouhammadi@gmail.com</a>
         <a href="https://github.com/Zakariajava" target="_blank" rel="noopener">github.com/Zakariajava</a>
         <a href="https://www.linkedin.com/in/zakaria-abouhammadi-52aa5b1a0/" target="_blank" rel="noopener">linkedin.com/in/zakaria-abouhammadi</a>
+        <a class="cv" href="assets/cv/CV_Español.pdf" download data-en="Download CV (ES)">Descargar CV (ES)</a>
+        <a class="cv" href="assets/cv/CV_ingles.pdf" download data-en="Download CV (EN)">Descargar CV (EN)</a>
       </div>
     </div>
   </div>
@@ -724,7 +727,7 @@ section, header.hero { animation: fadeIn 0.6s ease both; }
           <span class="sep">·</span>
           <span data-en="Internship">Contrato de prácticas</span>
         </div>
-        <p class="entry-desc" data-en="Designed and built the full pliego generation subsystem for the Comú d'Encamp (Andorra) project: twelve document types produced with a LangGraph pipeline, a python-docx rendering engine and a hybrid deterministic/LLM flow for user input handling. I also worked on integrating subgraphs into the main chatbot and on prompt engineering for Catalan content.">Diseño e implementación del subsistema completo de generación de pliegos para el proyecto del Comú d'Encamp (Andorra): doce tipos de documentos producidos mediante un pipeline de LangGraph, un motor de renderizado basado en python-docx y un flujo híbrido determinista/LLM para el manejo de la entrada del usuario. También trabajo sobre la integración de subgrafos en el grafo principal del chatbot y sobre la ingeniería de prompts para el catalán administrativo.</p>
+        <p class="entry-desc" data-en="Built an AI assistant that automatically generates public procurement documents for the municipality of Encamp (Andorra). Through a guided conversation with the user, the system collects the required information and produces the final Word document, with twelve different variants depending on the type of procedure. Responsible for the full generation module and its integration with the client's multilingual chatbot.">Desarrollo de un asistente de IA que genera automáticamente documentos administrativos de contratación pública para el ayuntamiento de Encamp (Andorra). A partir de una conversación guiada con el usuario, el sistema recoge los datos necesarios y produce el documento final en formato Word, con doce variantes distintas según el tipo de procedimiento. Responsable del módulo completo de generación e integración con el chatbot multilingüe del cliente.</p>
         <div class="entry-tags">
           <span>LangGraph</span><span>RAG</span><span>Python</span><span>python-docx</span><span>FastAPI</span><span>Docker</span><span>vLLM</span><span>Qwen3</span>
         </div>
