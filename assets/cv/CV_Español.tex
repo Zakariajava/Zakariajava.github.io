@@ -1,0 +1,253 @@
+%% CV - Zakaria Abouhammadi - Versión Española
+\documentclass[11pt,a4paper,sans]{moderncv}
+
+% ----- Tema y colores ---------------------------------------------------
+\moderncvstyle{banking}
+\moderncvcolor{blue}
+
+% ----- Paquetes ---------------------------------------------------------
+\usepackage[scale=0.85]{geometry}
+\usepackage{xcolor}
+\usepackage{fontawesome5}
+\usepackage{lmodern}
+\usepackage{microtype}
+\usepackage[utf8]{inputenc}
+\usepackage{tikz}
+\usepackage{enumitem}
+
+% ----- Espaciado --------------------------------------------------------
+\setlength{\hintscolumnwidth}{3cm}
+\setlength{\separatorcolumnwidth}{0.02\textwidth}
+
+% ----- Colores personalizados -------------------------------------------
+\definecolor{primarycolor}{RGB}{0,102,204}
+\definecolor{accentcolor}{RGB}{0,153,204}
+\definecolor{darkcolor}{RGB}{33,37,41}
+\definecolor{lightgray}{RGB}{108,117,125}
+\definecolor{sectioncolor}{RGB}{0,76,153}
+
+\colorlet{color0}{darkcolor}
+\colorlet{color1}{primarycolor}
+\colorlet{color2}{accentcolor}
+
+% ----- Datos personales -------------------------------------------------
+\name{Zakaria}{Abouhammadi}
+\title{\texorpdfstring{\LARGE\bfseries Ingeniero de Aprendizaje Automático \\ \large Estudiante de Ingeniería Informática / IA aplicada}{Ingeniero de Aprendizaje Automático}}
+\address{}{Valencia, España}{}
+\phone[mobile]{+34~641~381~040}
+\email{zakariaabouhammadi@gmail.com}
+\homepage{zakariajava.github.io}
+\social[github]{Zakariajava}
+\social[linkedin]{zakaria-abouhammadi-52aa5b1a0}
+
+% ----- Comandos personalizados ------------------------------------------
+\newcommand{\cvcert}[3]{%
+    \cvitem{\textcolor{primarycolor}{\small\textbf{#1}}}{%
+        \textbf{#2} \\
+        \textcolor{lightgray}{\small #3}%
+    }%
+}
+
+% Proyecto con repositorio público clicable: {nombre}{url}{stack}{descripción}
+\newcommand{\cvproject}[4]{%
+    \cvitem{\textcolor{primarycolor}{\faLaptopCode}}{%
+        \textbf{\textcolor{darkcolor}{#1}}~\href{#2}{\textcolor{primarycolor}{\footnotesize\faGithub~repo}} \\
+        \textcolor{accentcolor}{\small\textit{#3}} \\
+        \textcolor{darkcolor}{#4}%
+    }%
+}
+
+% Proyecto con repositorio privado: {nombre}{stack}{descripción}
+\newcommand{\cvprojectpriv}[3]{%
+    \cvitem{\textcolor{primarycolor}{\faLaptopCode}}{%
+        \textbf{\textcolor{darkcolor}{#1}}~\textcolor{lightgray}{\footnotesize\faLock~privado} \\
+        \textcolor{accentcolor}{\small\textit{#2}} \\
+        \textcolor{darkcolor}{#3}%
+    }%
+}
+
+\renewcommand*{\section}[1]{%
+    \par\addvspace{2.5ex}%
+    {\color{sectioncolor}\rule{\textwidth}{0.8pt}}%
+    \par\nobreak\addvspace{1ex}%
+    {\strut\raggedleft\raisebox{0pt}{\color{sectioncolor}\Large\bfseries #1}}%
+    \par\nobreak\addvspace{1ex}%
+}
+
+% ------------------------------------------------------------------------
+\begin{document}
+
+\makecvtitle
+\vspace{-0.6cm}
+
+% ------------------ Perfil ----------------------------------------------
+\section{\faUser~Perfil profesional}
+\cvitem{}{%
+    \textbf{Ingeniero de Aprendizaje Automático} en prácticas en \textbf{Solver Intelligent Analytics}, actualmente diseñando e implementando el subsistema de generación de documentos administrativos para el proyecto del Comú d'Encamp (Andorra), mediante un pipeline de \textbf{LangGraph} y \textbf{python-docx} sobre una instancia local de vLLM.
+    \\[0.3em]
+    Estudiante de último curso de Ingeniería Informática especializado en \textbf{sistemas de IA}, \textbf{RAG avanzado} y \textbf{desarrollo backend}. Experiencia práctica construyendo \textbf{pipelines de RAG} (HyDE, MultiQuery, rerankers, Chroma Cloud), \textbf{agentes} con LangChain/LangGraph/CrewAI/AutoGen y modelos \textbf{Transformer} y \textbf{CNN} desde cero. He diseñado sistemas multiagente de debate, implementado un \textit{Vision Transformer} y desarrollado aplicaciones web escalables. Partidario de \textbf{Scrum}, con experiencia como desarrollador y Scrum Master, entregando soluciones robustas y bien documentadas.%
+}
+
+% ------------------ Experiencia -----------------------------------------
+\section{\faBriefcase~Experiencia}
+\cventry{ene 2026 -- actualidad}{Ingeniero de Aprendizaje Automático}{Solver Intelligent Analytics}{Valencia, España}{\textit{Contrato de prácticas $\cdot$ Híbrido $\cdot$ 5 meses $\cdot$ 400 h}}{%
+    Desarrollo de un asistente conversacional con RAG para el Comú d'Encamp (Andorra): un chatbot multilingüe en producción que integra distintas funcionalidades para la administración municipal. Una de las funcionalidades principales es la generación automática de pliegos de contratación pública: mediante un flujo conversacional orquestado con \textbf{LangGraph}, el sistema recoge los datos necesarios del usuario y produce el documento final en formato Word, cubriendo doce variantes según el tipo de procedimiento. El módulo cubre el flujo end-to-end: extracción y validación de datos, plantillado DOCX a nivel XML e integración con \textbf{SharePoint} vía \textbf{Microsoft Graph} para mantener sincronizadas las plantillas y ejemplos del cliente.
+    \\[0.3em]
+    \textit{Stack:} Python, LangGraph, python-docx, FastAPI, Docker, vLLM (Qwen3-30B), Microsoft Graph, SharePoint, RAG, prompt engineering.%
+}
+
+% ------------------ Proyectos -------------------------------------------
+\section{\faLaptopCode~Proyectos}
+
+\cvproject{yolo\_v1}{https://github.com/Zakariajava/yolo\_v1}{PyTorch, DDP, AMP, COCO 2017, ResNet18}{Implementación desde cero de \textbf{YOLOv1} (Redmon et al., 2016) entrenada sobre COCO 2017 con 80 clases. Dos backbones (Darknet desde cero y ResNet18 preentrenado), rejilla de detección $7\times7$ con 2 cajas por celda, loss original de cinco términos y entrenamiento distribuido (DDP) con precisión mixta (AMP); incluye 38 tests con pytest y documentación detallada de bugs silenciosos.}
+
+\cvprojectpriv{asistente-uv \textnormal{(Trabajo de Fin de Grado)}}{LangGraph, Ollama, ChromaDB, BM25, Playwright, FastAPI, React, Docker}{Asistente RAG que responde preguntas sobre la Universitat de València usando información oficial extraída de \textit{uv.es}. Combina una base local de documentos indexados con búsqueda web en tiempo real cuando la información no está disponible, y se enriquece automáticamente con cada nueva consulta. Agente ReAct sobre LangGraph con retrieval híbrido (BM25 + dense + RRF) y scraping con Playwright.}
+
+\cvproject{CodeScribe}{https://github.com/Zakariajava/CodeScribe}{Python, LangGraph, Ollama, Click, Rich, Pydantic, uv}{Herramienta de línea de comandos que escanea un proyecto entero y añade documentación y comentarios a cada fichero fuente usando un LLM local vía Ollama. Pipeline determinista construido con LangGraph: escaneo $\rightarrow$ clasificación $\rightarrow$ chunking $\rightarrow$ LLM $\rightarrow$ post-procesado $\rightarrow$ escritura. Soporta dry-run con diff, backups, menú interactivo y generación automática de README.}
+
+\cvproject{chatbot --- LangGraph RAG Assistant}{https://github.com/Zakariajava/chatbot}{LangGraph, BM25, Dense Embeddings, RRF, SQLite, Selenium}{Sistema de QA conversacional con retrieval híbrido fusionado con Reciprocal Rank Fusion, citas estrictas por chunk, enriquecimiento web adaptativo con Selenium y memoria a corto/largo plazo en SQLite. Todo orquestado en un único grafo de LangGraph con nodos contractualizados. Multilingüe de principio a fin.}
+
+\cvproject{llama\_4\_scratch}{https://github.com/Zakariajava/llama\_4\_scratch}{PyTorch, NumPy, Jupyter}{Implementación y explicación paso a paso de los componentes clave de un \textbf{decoder Transformer} tipo LLaMA: tokenizador, scaled dot-product attention y Multi-Head Latent Attention. Cada operación comentada con ejemplos numéricos y visualizaciones.}
+
+\cvproject{multiquery-hyde-rag-chroma-cloud}{https://github.com/Zakariajava/multiquery-hyde-rag-chroma-cloud}{Python, RAG, LangChain, Chroma Cloud}{Pipeline de RAG avanzado con \textbf{HyDE} y \textbf{MultiQuery} para ampliar cobertura, indexación en \textbf{Chroma Cloud} y reranking para mejorar la precisión de la respuesta; incluye evaluación de recuperación y documentación reproducible.}
+
+\cvproject{advanced-hyde-rag}{https://github.com/Zakariajava/advanced-hyde-rag}{Python, RAG, LangChain}{Implementación de RAG con HyDE y generación de consultas sintéticas, manejo de chunking y embeddings, comparación de estrategias de recuperación y análisis de latencia.}
+
+\cvproject{ranked-rag-pipeline}{https://github.com/Zakariajava/ranked-rag-pipeline}{Python, Cross-Encoder, Sentence Transformers}{Cadena de recuperación con \textbf{rerankers} y filtros, métricas de cobertura/precisión y utilidades para trazabilidad de fuentes.}
+
+\cvproject{bm25-dense-retrieval}{https://github.com/Zakariajava/bm25-dense-etrieval}{BM25, Embeddings, RRF}{Estudio práctico del retrieval híbrido combinando BM25 (léxico) con dense embeddings (semántico) y Reciprocal Rank Fusion. Comparativa de rendimiento según el tipo de pregunta.}
+
+\cvproject{data-chat}{https://github.com/Zakariajava/data-chat}{LangChain, LLMs, SQL}{Exploración de patrones de \textbf{text-to-SQL} y data chat con agentes: convertir preguntas en lenguaje natural en consultas estructuradas, ejecutarlas y devolver la respuesta ya resumida.}
+
+\cvproject{MultiagentDebate}{https://github.com/Zakariajava/MultiagentDebate}{Python, LangChain/LangGraph}{Sistema de \textbf{debate multiagente} (científico, económico, histórico, psicológico, refutación) con supervisores y evaluación automática; orquestación con LangGraph y registro de evidencias.}
+
+\cvproject{VisionTransformer}{https://github.com/Zakariajava/VisionTransformer}{PyTorch, Computer Vision}{Implementación educativa de un Vision Transformer (ViT): patch embedding, multihead attention, MLP head y entrenamiento en conjuntos de visión, con análisis comparativo frente a arquitecturas CNN.}
+
+\cvproject{PoetryTransformerPredict}{https://github.com/Zakariajava/PoetryTransformerPredict}{PyTorch, NLP}{\textbf{Transformer bigrama} creado desde cero (embedding $\sim$9.5k, 4 bloques de atención) para generar poesía en español; ejemplo de entrenamiento y muestreo.}
+
+\cvproject{GiveMeSomeCredit --- Default Risk}{https://github.com/Zakariajava/GiveMeSomeCredit}{PyTorch, scikit-learn, pandas, MLP, AMP}{Baseline limpio y reproducible para predecir impago grave a dos años con PyTorch. Auditoría de datos, imputación por mediana, recortes por cuantiles, transformaciones log1p, RobustScaler, MLP con BatchNorm y GELU, entrenamiento con precisión mixta y early stopping sobre ROC-AUC.}
+
+\cvproject{Recommender Systems}{https://github.com/Zakariajava/Recommender\_Systems}{Surprise, NumPy, Collaborative Filtering}{Modelos de filtrado colaborativo y basado en contenido, métricas (RMSE, MAP@K) y validación cruzada; notebooks explicativos.}
+
+\cvproject{Brain Tumor Classification}{https://github.com/Zakariajava/Brain-Tumor-Classification}{TensorFlow, VGG19}{Clasificación de tumores cerebrales vs. no tumores mediante fine-tuning de VGG19 y data augmentation; evaluación en conjunto de validación.}
+
+\cvproject{Amazigh Alphabets Recognition}{https://github.com/Zakariajava/Amazigh-Alphabets-Recognition}{TensorFlow, Keras}{Red \textbf{CNN} para reconocimiento de caracteres tifinagh manuscritos con precisión $>95\%$; preprocesado y pipeline de entrenamiento.}
+
+\cvproject{Handwritten Alphabets \& Digit Recognition}{https://github.com/Zakariajava/Handwritten-Alphabets-Recognition}{TensorFlow, Keras, MNIST}{Modelos CNN para letras manuscritas del alfabeto latino y dígitos (MNIST), comparación con SVM/MLP y análisis de errores.}
+
+\cvproject{Housing Price Prediction}{https://github.com/Zakariajava/Housing-Price}{Python, scikit-learn}{Regresión lineal y Random Forest para estimación de precios de vivienda; comparación de RMSE y $R^2$.}
+
+\cvproject{TiendaWeb (Klawz)}{https://github.com/Zakariajava/TiendaWeb}{Java/JSP, MySQL}{E-commerce completo con catálogo, carrito y pasarela de pago; arquitectura MVC, sesiones y seguridad básica.}
+
+\cvproject{PhongIllumination}{https://github.com/Zakariajava/PhongIllumination}{C, OpenGL, OpenMP, MPI}{Implementación del \textbf{modelo de iluminación Phong} en versiones secuencial, de memoria compartida y paralela distribuida; medición de speedup.}
+
+\cvproject{minilang}{https://github.com/Zakariajava/minilang}{Python, PLY}{\textbf{Compilador didáctico} para MiniLang con análisis léxico, sintáctico y semántico, generación de AST y ejecución de pruebas.}
+
+\cvproject{ISII\_AdministrarHospitales}{https://github.com/Zakariajava/ISII\_AdministrarHospitales}{Java, Full-stack}{Sistema de gestión hospitalaria: historiales clínicos, inventario y control de accesos; autenticación y roles.}
+
+% ------------------ Educación -------------------------------------------
+\section{\faGraduationCap~Educación}
+\cventry{sep 2022 -- sep 2026\textit{ (prev.)}}{Grado en Ingeniería Informática}{Universitat de València}{Valencia, España}{}{%
+    \textit{Asignaturas destacadas:} Estructura de datos y algoritmos, Desarrollo de aplicaciones web, Sistemas inteligentes, Ingeniería del software, Bases de datos.%
+}
+
+% ------------------ Competencias técnicas -------------------------------
+\section{\faCode~Competencias técnicas}
+\cvitem{\textbf{\textcolor{primarycolor}{Lenguajes}}}{Python, C/C++, Java, JavaScript, HTML5, CSS3, SQL}
+\cvitem{\textbf{\textcolor{primarycolor}{IA / ML}}}{PyTorch, TensorFlow, Keras, scikit-learn, Transformers, BERT/ViT, LangChain, LangGraph, CrewAI, AutoGen, BeeAI, Ollama, vLLM}
+\cvitem{\textbf{\textcolor{primarycolor}{RAG / NLP}}}{ChromaDB (Cloud), FAISS, BM25, HyDE, MultiQuery, Reranking, Evaluación de recuperación, Prompt Engineering, Knowledge Graphs}
+\cvitem{\textbf{\textcolor{primarycolor}{Backend}}}{FastAPI, Flask, Java EE (JSP/Servlets), REST APIs, python-docx}
+\cvitem{\textbf{\textcolor{primarycolor}{Datos}}}{PostgreSQL, MySQL, SQLite, MongoDB, pandas, NumPy}
+\cvitem{\textbf{\textcolor{primarycolor}{DevOps}}}{Docker, Docker Compose, Git \& GitHub Actions, Google Cloud, Linux}
+\cvitem{\textbf{\textcolor{primarycolor}{Metodologías}}}{Scrum \textit{(desarrollador y Scrum Master)}}
+
+% ------------------ Aptitudes destacadas --------------------------------
+\section{\faCogs~Aptitudes destacadas}
+\cvitem{}{%
+    \textcolor{darkcolor}{%
+        RAG avanzado (HyDE, MultiQuery, rerankers) $\cdot$ Bases de datos vectoriales (Chroma, FAISS) $\cdot$ Agentes (LangGraph, CrewAI, AutoGen, BeeAI) $\cdot$ Transformers (BERT, ViT) $\cdot$ Redes convolucionales $\cdot$ Modelado de riesgos y pronóstico $\cdot$ Árboles de decisión $\cdot$ Análisis de imágenes $\cdot$ EDA e ingeniería de características $\cdot$ Optimización e hiperparámetros $\cdot$ Fundamentos de PyTorch $\cdot$ Generación de documentos con plantillas%
+    }%
+}
+
+% ------------------ Competencias interpersonales ------------------------
+\section{\faUsers~Competencias interpersonales}
+\cvitem{}{%
+    \textcolor{darkcolor}{%
+        Trabajo en equipo multicultural $\cdot$ Comunicación trilingüe (ES/EN/FR) $\cdot$ Pensamiento analítico $\cdot$ Gestión del tiempo $\cdot$ Aprendizaje continuo $\cdot$ Liderazgo académico%
+    }%
+}
+
+\newpage
+
+% ------------------ Certificaciones -------------------------------------
+\section{\faCertificate~Certificaciones y cursos}
+
+\subsection{\textcolor{accentcolor}{\faAward~Especializaciones y programas}}
+\cvcert{Nov 2025}{\textbf{PyTorch for Deep Learning (Professional Certificate)} --- DeepLearning.AI}{ID: ZYEUD91L9FYS $\cdot$ Modelos de deep learning con PyTorch $\cdot$ Transfer learning en visión y NLP $\cdot$ Optimización y despliegue de modelos}
+\cvcert{Oct 2025}{\textbf{Building AI Agents and Agentic Workflows (Specialization)} --- IBM}{ID: UROX1SUIDGWA $\cdot$ Diseño de flujos de trabajo agentivos, uso de herramientas, orquestación y evaluación}
+\cvcert{Oct 2025}{\textbf{AI for Medicine Specialization} --- DeepLearning.AI}{ID: 6MOISRA2N5WK $\cdot$ Medicina de precisión, análisis de imágenes, modelado de riesgos, árboles de decisión, pronóstico}
+\cvcert{Sept 2025}{\textbf{RAG for Generative AI Applications (Specialization)} --- IBM}{ID: W2UQZCZMJHKV $\cdot$ Diseño e implementación integral de sistemas RAG}
+\cvcert{Feb 2025}{\textbf{Deep Learning Specialization} --- DeepLearning.AI}{ID: EOAJ4XETDWMR $\cdot$ Redes neuronales, CNN, optimización, regularización, modelos de secuencia}
+\cvcert{Nov 2024}{\textbf{Machine Learning} --- DeepLearning.AI (Andrew Ng)}{ID: 9PL5C8QDGYQ6 $\cdot$ Supervisado, no supervisado, regularización, evaluación}
+\cvcert{Nov 2024}{\textbf{IBM Introduction to Machine Learning} --- IBM}{ID: 59X2YJWXX9SS $\cdot$ Fundamentos de ML, aprendizaje supervisado y no supervisado, evaluación de modelos}
+
+\subsection{\textcolor{accentcolor}{\faRobot~RAG y agentes}}
+\cvcert{Sept 2025}{\textbf{Advanced RAG with Vector Databases and Retrievers} --- IBM}{ID: TSXE4ZG7MDFQ}
+\cvcert{Sept 2025}{\textbf{Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI} --- IBM}{ID: AWXAVIH36K1F}
+\cvcert{Sept 2025}{\textbf{IBM RAG and Agentic AI} --- IBM}{ID: X3774PPHATF6}
+\cvcert{Jul 2025}{\textbf{Build RAG Applications: Get Started} --- IBM}{ID: 596YXNIVML4A}
+\cvcert{Jul 2025}{\textbf{Fundamentals of Building AI Agents} --- IBM}{ID: ZGQWDFK0VO5H}
+\cvcert{Jul 2025}{\textbf{Vector Databases for RAG: An Introduction} --- IBM}{ID: K46CQ74O5CKA}
+\cvcert{Jul 2025}{\textbf{AI Enhancement with Knowledge Graphs --- Mastering RAG Systems} --- Packt}{ID: 28DS7P6LJIE8}
+\cvcert{Jul 2025}{\textbf{Agentic AI with LangChain and LangGraph} --- IBM}{ID: V82LDS06UQN4}
+\cvcert{Jul 2025}{\textbf{Develop Generative AI Applications: Get Started} --- IBM}{ID: 2EPBGK0YLTIP}
+\cvcert{Jul 2025}{\textbf{Build Multimodal Generative AI Applications} --- IBM}{ID: IW6XFBO3EGSN}
+
+\subsection{\textcolor{accentcolor}{\faBrain~PyTorch y Deep Learning}}
+\cvcert{Nov 2025}{\textbf{PyTorch: Fundamentals} --- DeepLearning.AI}{ID: 6PJ2XY48LZZO $\cdot$ Fundamentos de PyTorch, Tensores y Autograd}
+\cvcert{Nov 2025}{\textbf{PyTorch: Techniques and Ecosystem Tools} --- DeepLearning.AI}{ID: CR0RUHDBQ5CS $\cdot$ Torch.Optim, PyTorch Lightning y ecosistema}
+\cvcert{Nov 2025}{\textbf{PyTorch: Advanced Architectures and Deployment} --- DeepLearning.AI}{ID: CK4L1IG1BJ5L $\cdot$ Encoder--Decoder, ResNet, DenseNet y despliegue}
+\cvcert{Sept 2025}{\textbf{Building and Training Neural Networks with PyTorch} --- Packt}{ID: N4BCRQSYJ7D2 $\cdot$ CNN}
+\cvcert{Sept 2025}{\textbf{Foundations and Core Concepts of PyTorch} --- Packt}{ID: OJG0HNZ0ZQC9 $\cdot$ Fundamentos de ML}
+
+\subsection{\textcolor{accentcolor}{\faComment~NLP y Transformers}}
+\cvcert{Mar 2025}{\textbf{Transformer Models and BERT Model} --- Google Cloud}{ID: K2LDLD7XJIM6}
+\cvcert{Feb 2025}{\textbf{Attention Mechanism} --- Google Cloud}{ID: LJPL5IN4LHON}
+
+\subsection{\textcolor{accentcolor}{\faChartLine~Fundamentos de ML/DL}}
+\cvcert{2024--2025}{\textbf{Convolutional Neural Networks}}{ID: Y4QTHRNL3HE7 $\cdot$ TensorFlow, CNN, reconocimiento facial, detección y segmentación de objetos}
+\cvcert{2024--2025}{\textbf{Exploratory Data Analysis for Machine Learning}}{ID: 8PVON5MQJ62R $\cdot$ EDA, ingeniería de características, contrastes estadísticos}
+\cvcert{2024--2025}{\textbf{Improving Deep Neural Networks}}{ID: CNCPQJS4KTFE $\cdot$ Regularización, optimización, hiperparámetros}
+\cvcert{2024--2025}{\textbf{Neural Networks and Deep Learning}}{ID: KNJNB8WQWAJP}
+\cvcert{2024--2025}{\textbf{Structuring Machine Learning Projects}}{ID: Z3KQ6DQXD2GM}
+\cvcert{2024--2025}{\textbf{Supervised Machine Learning: Classification}}{ID: HYIO24EKA6SX}
+\cvcert{2024--2025}{\textbf{Supervised Machine Learning: Regression}}{ID: LDQ28KIIHHG7}
+\cvcert{2024--2025}{\textbf{Unsupervised Machine Learning}}{ID: 52M2R676600S}
+\cvcert{Nov 2024}{\textbf{Supervised Machine Learning: Classification (Badge)}}{Certificado digital}
+
+\subsection{\textcolor{accentcolor}{\faCloud~Web, Cloud y redes}}
+\cvcert{Feb 2025}{\textbf{Google AI Essentials} --- Google}{ID: X51IOTBS2BSE}
+\cvcert{Feb 2025}{\textbf{Advanced Styling with Responsive Design} --- Univ. Michigan}{ID: VHSLGPRZGP26}
+\cvcert{Feb 2025}{\textbf{Interactivity with JavaScript} --- Univ. Michigan}{ID: JODZD9YLKDBT}
+\cvcert{Feb 2025}{\textbf{Introduction to CSS3} --- Univ. Michigan}{ID: FDU5K7VCNMBP}
+\cvcert{Feb 2025}{\textbf{Introduction to HTML5} --- Univ. Michigan}{ID: B9898ISXJUTR}
+\cvcert{Feb 2025}{\textbf{Introduction to Networking} --- NVIDIA}{ID: AUQMCFVGVRP0}
+\cvcert{Feb 2025}{\textbf{AI Infrastructure and Operations Fundamentals} --- NVIDIA}{ID: NFNQ1HP3ODGH}
+
+% ------------------ Idiomas ---------------------------------------------
+\section{\faLanguage~Idiomas}
+\cvitemwithcomment{Bereber}{Nativo}{}
+\cvitemwithcomment{Árabe}{Nativo}{}
+\cvitemwithcomment{Español}{C1--C2}{Competencia profesional completa}
+\cvitemwithcomment{Inglés}{B2--C1}{Competencia profesional completa}
+\cvitemwithcomment{Francés}{B2}{Competencia profesional}
+
+% ------------------ Intereses -------------------------------------------
+\section{\faHeart~Intereses}
+\cvitem{}{%
+    \textcolor{darkcolor}{%
+        IA generativa $\cdot$ Machine Learning $\cdot$ NLP $\cdot$ RAG $\cdot$ Bases de datos $\cdot$ Compiladores $\cdot$ Cloud Computing $\cdot$ Ciberseguridad $\cdot$ Robótica $\cdot$ IoT $\cdot$ Desarrollo de videojuegos $\cdot$ Open Source $\cdot$ Optimización $\cdot$ Computer Vision $\cdot$ Fotografía con drones $\cdot$ Senderismo $\cdot$ Realidad virtual/aumentada%
+    }%
+}
+
+\end{document}

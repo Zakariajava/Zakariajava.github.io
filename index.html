@@ -1,1492 +1,288 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 <title>Zakaria Abouhammadi — Machine Learning Engineer</title>
-<meta name="description" content="Zakaria Abouhammadi. Grado en Ingeniería Informática (UV). Ingeniero de Aprendizaje Automático en Solver Intelligent Analytics. LLMs, RAG, agentes y deep learning.">
+<meta name="description" content="Zakaria Abouhammadi · Machine Learning Engineer · LLMs, RAG, Agents · Valencia, ES" />
+<meta name="author" content="Zakaria Abouhammadi" />
 
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Host+Grotesk:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+<!-- Open Graph / Twitter -->
+<meta property="og:type" content="website" />
+<meta property="og:title" content="Zakaria Abouhammadi — Machine Learning Engineer" />
+<meta property="og:description" content="Portfolio · LLMs, RAG, agents and deep learning · Valencia, ES" />
+<meta property="og:image" content="assets/photo/imagen.jpeg" />
+<meta name="twitter:card" content="summary_large_image" />
+<meta name="twitter:title" content="Zakaria Abouhammadi — Machine Learning Engineer" />
+<meta name="twitter:description" content="Portfolio · LLMs, RAG, agents and deep learning · Valencia, ES" />
+<meta name="twitter:image" content="assets/photo/imagen.jpeg" />
+
+<link rel="icon" type="image/jpeg" href="assets/photo/imagen.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100;200;300;400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet" />
 
 <style>
-:root {
-  --bg: #fafaf7;
-  --bg-hover: #f2f1eb;
-  --text: #0a0a0a;
-  --text-2: #525252;
-  --text-3: #a3a3a3;
-  --line: #e7e5df;
-  --line-strong: #1f1f1f;
-  --sans: "Host Grotesk", -apple-system, sans-serif;
-  --mono: "JetBrains Mono", monospace;
-}
-
-* { margin: 0; padding: 0; box-sizing: border-box; }
-
-html {
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-}
-
-body {
-  background: var(--bg);
-  color: var(--text);
-  font-family: var(--sans);
-  font-weight: 400;
-  font-size: 16px;
-  line-height: 1.55;
-  letter-spacing: -0.01em;
-}
-
-a { color: inherit; text-decoration: none; }
-
-button {
-  font-family: inherit;
-  background: none;
-  border: none;
-  cursor: pointer;
-  color: inherit;
-}
-
-.wrap {
-  max-width: 1100px;
-  margin: 0 auto;
-  padding: 0 2.5rem;
-}
-
-/* ============ TOP NAV ============ */
-nav.top {
-  position: sticky;
-  top: 0;
-  background: rgba(250, 250, 247, 0.88);
-  backdrop-filter: saturate(180%) blur(12px);
-  -webkit-backdrop-filter: saturate(180%) blur(12px);
-  border-bottom: 1px solid var(--line);
-  z-index: 100;
-}
-
-.nav-inner {
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 1rem 0;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-}
-
-.nav-brand {
-  font-family: var(--sans);
-  font-weight: 500;
-  font-size: 0.95rem;
-  letter-spacing: -0.02em;
-}
-
-.nav-center {
-  display: flex;
-  gap: 2rem;
-}
-
-.nav-center a {
-  color: var(--text-2);
-  transition: color 0.15s ease;
-}
-
-.nav-center a:hover,
-.nav-center a.current { color: var(--text); }
-
-.lang-toggle {
-  display: flex;
-  align-items: center;
-  gap: 0.35rem;
-  color: var(--text-3);
-}
-
-.lang-btn {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  color: var(--text-3);
-  padding: 0.2rem 0.1rem;
-  transition: color 0.15s;
-}
-
-.lang-btn.active { color: var(--text); }
-.lang-btn:hover { color: var(--text-2); }
-
-/* ============ HERO ============ */
-header.hero {
-  padding: 7rem 0 6rem;
-  border-bottom: 1px solid var(--line);
-}
-
-.hero-label {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--text-2);
-  margin-bottom: 2.5rem;
-  display: flex;
-  align-items: center;
-  gap: 0.75rem;
-}
-
-.hero-label::before {
-  content: "";
-  width: 28px;
-  height: 1px;
-  background: var(--text);
-  display: inline-block;
-}
-
-h1.name {
-  font-size: clamp(3rem, 9vw, 7.5rem);
-  font-weight: 500;
-  line-height: 0.95;
-  letter-spacing: -0.055em;
-  margin-bottom: 2.5rem;
-}
-
-h1.name .line2 {
-  display: block;
-  color: var(--text-3);
-}
-
-.hero-meta {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4rem;
-  align-items: end;
-  padding-top: 2.5rem;
-  border-top: 1px solid var(--line);
-}
-
-.hero-bio {
-  font-size: 1.125rem;
-  color: var(--text-2);
-  max-width: 54ch;
-}
-
-.hero-bio strong {
-  color: var(--text);
-  font-weight: 500;
-}
-
-.hero-contacts {
-  display: flex;
-  flex-direction: column;
-  gap: 0.65rem;
-  font-family: var(--mono);
-  font-size: 0.82rem;
-  text-align: right;
-}
-
-.hero-contacts a {
-  color: var(--text-2);
-  display: inline-flex;
-  align-items: center;
-  justify-content: flex-end;
-  gap: 0.55rem;
-  transition: color 0.15s;
-  white-space: nowrap;
-}
-
-.hero-contacts a:hover { color: var(--text); }
-.hero-contacts a::after {
-  content: "↗";
-  font-size: 0.9em;
-  color: var(--text-3);
-  transition: transform 0.15s, color 0.15s;
-}
-.hero-contacts a:hover::after { color: var(--text); transform: translate(1px, -1px); }
-.hero-contacts a.mail::after { content: "→"; }
-.hero-contacts a.cv::after { content: "↓"; }
-
-/* ============ SECTIONS ============ */
-section {
-  padding: 6rem 0;
-  border-bottom: 1px solid var(--line);
-}
-
-.section-head {
-  display: grid;
-  grid-template-columns: 1fr 2fr;
-  gap: 3rem;
-  margin-bottom: 4rem;
-}
-
-.section-num {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  color: var(--text-3);
-  padding-top: 0.4rem;
-}
-
-.section-head h2 {
-  font-size: clamp(1.75rem, 3.5vw, 2.5rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.1;
-  max-width: 30ch;
-}
-
-.section-head h2 em {
-  font-style: italic;
-  color: var(--text-2);
-  font-weight: 400;
-}
-
-/* ============ STATS ============ */
-.stats {
-  display: flex;
-  gap: 3.5rem;
-  flex-wrap: wrap;
-}
-
-.stat {
-  display: flex;
-  flex-direction: column;
-  gap: 0.4rem;
-}
-
-.stat-num {
-  font-size: 2.75rem;
-  font-weight: 500;
-  letter-spacing: -0.04em;
-  line-height: 1;
-}
-
-.stat-label {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--text-3);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-/* ============ EXPERIENCE / EDUCATION ============ */
-.entry {
-  display: grid;
-  grid-template-columns: 160px 1fr auto;
-  gap: 3rem;
-  padding: 2.5rem 0;
-  border-top: 1px solid var(--line);
-  align-items: start;
-}
-
-.entry:last-child { border-bottom: 1px solid var(--line); }
-
-.entry-dates {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  color: var(--text-2);
-  padding-top: 0.3rem;
-}
-
-.entry-dates .duration {
-  display: block;
-  color: var(--text-3);
-  font-size: 0.72rem;
-  margin-top: 0.25rem;
-}
-
-.entry-main h3 {
-  font-size: 1.5rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  margin-bottom: 0.3rem;
-}
-
-.entry-org {
-  color: var(--text-2);
-  font-size: 1rem;
-  margin-bottom: 0.75rem;
-}
-
-.entry-org .sep {
-  color: var(--text-3);
-  margin: 0 0.4rem;
-}
-
-.entry-desc {
-  color: var(--text-2);
-  font-size: 0.95rem;
-  max-width: 60ch;
-  margin-bottom: 0.9rem;
-}
-
-.entry-tags {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.entry-tags span {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: var(--text-2);
-  padding: 0.2rem 0.55rem;
-  border: 1px solid var(--line);
-}
-
-.entry-meta {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--text-3);
-  text-align: right;
-  padding-top: 0.3rem;
-}
-
-.entry-meta div { margin-bottom: 0.3rem; }
-
-/* ============ FILTERS ============ */
-.filters {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 2rem;
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  margin-top: 2rem;
-}
-
-.filter-btn {
-  color: var(--text-3);
-  padding: 0.3rem 0;
-  transition: color 0.15s ease;
-  position: relative;
-}
-
-.filter-btn:hover { color: var(--text-2); }
-.filter-btn.active { color: var(--text); }
-
-.filter-btn.active::after {
-  content: "";
-  position: absolute;
-  bottom: -1px;
-  left: 0;
-  right: 0;
-  height: 1px;
-  background: var(--text);
-}
-
-.filter-btn .count {
-  font-size: 0.85em;
-  color: var(--text-3);
-  margin-left: 0.25rem;
-}
-
-.filter-btn.active .count { color: var(--text-2); }
-
-/* ============ PROJECT & CERT LISTS ============ */
-.list {
-  border-top: 1px solid var(--line);
-  margin-top: 2rem;
-}
-
-.project {
-  display: grid;
-  grid-template-columns: 52px 1fr auto;
-  gap: 2.5rem;
-  padding: 2.25rem 0;
-  border-bottom: 1px solid var(--line);
-  align-items: start;
-  transition: padding 0.3s ease, background 0.25s ease;
-}
-
-.project[href]:hover {
-  background: var(--bg-hover);
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.project.hidden { display: none !important; }
-
-.project-num {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--text-3);
-  padding-top: 0.4rem;
-}
-
-.project-main { min-width: 0; }
-
-.project-title {
-  display: flex;
-  align-items: baseline;
-  gap: 0.85rem;
-  margin-bottom: 0.3rem;
-  flex-wrap: wrap;
-}
-
-.project h3 {
-  font-size: 1.4rem;
-  font-weight: 500;
-  letter-spacing: -0.02em;
-  line-height: 1.2;
-}
-
-.project .cat {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: var(--text-3);
-  text-transform: uppercase;
-  letter-spacing: 0.05em;
-}
-
-.project p {
-  color: var(--text-2);
-  font-size: 0.94rem;
-  max-width: 62ch;
-  margin-bottom: 0.9rem;
-}
-
-.tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.4rem;
-}
-
-.tech span {
-  font-family: var(--mono);
-  font-size: 0.68rem;
-  color: var(--text-2);
-  padding: 0.2rem 0.55rem;
-  border: 1px solid var(--line);
-}
-
-.project-cta {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  color: var(--text-2);
-  padding-top: 0.5rem;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.5rem;
-  white-space: nowrap;
-}
-
-.project-cta::after {
-  content: "↗";
-  color: var(--text-3);
-  transition: transform 0.2s, color 0.15s;
-}
-
-.project[href]:hover .project-cta { color: var(--text); }
-.project[href]:hover .project-cta::after {
-  color: var(--text);
-  transform: translate(1px, -1px);
-}
-
-.project.private .project-cta::after { content: "◈"; }
-.project.private { cursor: default; }
-
-/* Expand buttons */
-.expand-row {
-  display: flex;
-  justify-content: center;
-  padding: 3rem 0 1rem;
-}
-
-.expand-btn {
-  font-family: var(--mono);
-  font-size: 0.78rem;
-  color: var(--text);
-  padding: 0.9rem 1.5rem;
-  border: 1px solid var(--line-strong);
-  transition: background 0.2s, color 0.2s;
-  display: inline-flex;
-  align-items: center;
-  gap: 0.6rem;
-}
-
-.expand-btn:hover {
-  background: var(--line-strong);
-  color: var(--bg);
-}
-
-.expand-btn::after {
-  content: "↓";
-  transition: transform 0.2s;
-}
-
-.expand-btn.open::after {
-  transform: rotate(180deg);
-}
-
-/* ============ CERTIFICATIONS ============ */
-.certs-flat {
-  border-top: 1px solid var(--line);
-  margin-top: 2rem;
-}
-
-.cert {
-  display: grid;
-  grid-template-columns: 52px 1fr 240px 140px;
-  gap: 2rem;
-  padding: 1.6rem 0;
-  border-bottom: 1px solid var(--line);
-  align-items: baseline;
-  transition: padding 0.25s ease, background 0.25s ease;
-}
-
-.cert[href]:hover {
-  background: var(--bg-hover);
-  padding-left: 1rem;
-  padding-right: 1rem;
-}
-
-.cert.hidden { display: none !important; }
-
-.cert-num {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--text-3);
-}
-
-.cert-title {
-  font-size: 1.05rem;
-  font-weight: 500;
-  letter-spacing: -0.01em;
-  color: var(--text);
-}
-
-.cert-issuer {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--text-2);
-}
-
-.cert-date {
-  font-family: var(--mono);
-  font-size: 0.75rem;
-  color: var(--text-3);
-  text-align: right;
-}
-
-/* ============ FOOTER ============ */
-footer.site-footer {
-  padding: 5rem 0 4rem;
-  border-bottom: none;
-}
-
-.footer-grid {
-  display: grid;
-  grid-template-columns: 1fr auto;
-  gap: 4rem;
-  align-items: end;
-}
-
-.footer-cta {
-  font-size: clamp(2rem, 5vw, 3.5rem);
-  font-weight: 500;
-  letter-spacing: -0.03em;
-  line-height: 1.05;
-  max-width: 22ch;
-}
-
-.footer-cta em {
-  font-style: italic;
-  color: var(--text-2);
-  font-weight: 400;
-}
-
-.footer-cta a {
-  border-bottom: 2px solid var(--text);
-  white-space: nowrap;
-}
-
-.footer-cta a:hover { color: var(--text-2); border-bottom-color: var(--text-2); }
-
-.footer-meta {
-  font-family: var(--mono);
-  font-size: 0.72rem;
-  color: var(--text-3);
-  text-align: right;
-}
-
-.footer-meta div { margin-bottom: 0.3rem; }
-
-.footer-meta a {
-  color: var(--text-2);
-  border-bottom: 1px solid var(--line-strong);
-}
-.footer-meta a:hover { color: var(--text); }
-
-/* ============ RESPONSIVE ============ */
-@media (max-width: 900px) {
-  .wrap { padding: 0 1.5rem; }
-  .nav-inner { flex-wrap: wrap; gap: 0.75rem; }
-  .nav-center { order: 3; width: 100%; justify-content: center; gap: 1.5rem; }
-  header.hero { padding: 4rem 0; }
-  .hero-meta { grid-template-columns: 1fr; gap: 2rem; }
-  .hero-contacts { text-align: left; }
-  .hero-contacts a { justify-content: flex-start; }
-  section { padding: 4rem 0; }
-  .section-head { grid-template-columns: 1fr; gap: 1rem; margin-bottom: 2.5rem; }
-  .stats { gap: 2rem; }
-  .stat-num { font-size: 2rem; }
-  .entry { grid-template-columns: 1fr; gap: 0.75rem; padding: 2rem 0; }
-  .entry-meta { text-align: left; padding-top: 0; }
-  .project { grid-template-columns: 1fr; gap: 0.75rem; padding: 1.75rem 0; }
-  .project[href]:hover { padding-left: 0; padding-right: 0; }
-  .project-num, .project-cta { padding-top: 0; }
-  .cert { grid-template-columns: 1fr; gap: 0.3rem; padding: 1.25rem 0; }
-  .cert[href]:hover { padding-left: 0; padding-right: 0; }
-  .cert-date { text-align: left; }
-  .filters { gap: 1.25rem; }
-  .footer-grid { grid-template-columns: 1fr; gap: 2rem; }
-  .footer-meta { text-align: left; }
-}
-
-@keyframes fadeIn {
-  from { opacity: 0; transform: translateY(12px); }
-  to { opacity: 1; transform: translateY(0); }
-}
-
-section, header.hero { animation: fadeIn 0.6s ease both; }
+  :root {
+    /* Dark — primary */
+    --bg-base: #07070A;
+    --bg-surface: #0E0E12;
+    --bg-surface-2: #16161B;
+    --bg-glass: rgba(20, 20, 26, 0.55);
+
+    --border-soft: rgba(255, 255, 255, 0.06);
+    --border-default: rgba(255, 255, 255, 0.10);
+    --border-strong: rgba(255, 255, 255, 0.18);
+
+    --text-primary: #F5F5F7;
+    --text-secondary: #A1A1AA;
+    --text-tertiary: #6B6B73;
+
+    --accent-primary: #7C5CFF;
+    --accent-glow: rgba(124, 92, 255, 0.35);
+    --accent-cyan: #5EE7DF;
+    --accent-pink: #FF7AC6;
+    --success: #34D399;
+    --warning: #FBBF24;
+
+    --ease-apple: cubic-bezier(0.32, 0.72, 0, 1);
+    --sans: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+    --mono: "JetBrains Mono", ui-monospace, "SF Mono", Menlo, monospace;
+  }
+
+  html.light {
+    --bg-base: #FAFAF7;
+    --bg-surface: #FFFFFF;
+    --bg-surface-2: #F2F1EB;
+    --bg-glass: rgba(250, 250, 247, 0.72);
+    --border-soft: rgba(0, 0, 0, 0.06);
+    --border-default: rgba(0, 0, 0, 0.10);
+    --border-strong: rgba(0, 0, 0, 0.18);
+    --text-primary: #0A0A0A;
+    --text-secondary: #525252;
+    --text-tertiary: #A3A3A3;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { -webkit-font-smoothing: antialiased; -moz-osx-font-smoothing: grayscale; scroll-behavior: smooth; background: var(--bg-base); }
+  html, body { overflow-x: clip; }
+  body {
+    background: var(--bg-base);
+    color: var(--text-primary);
+    font-family: var(--sans);
+    font-weight: 400;
+    font-size: 16px;
+    line-height: 1.55;
+    letter-spacing: -0.01em;
+    min-height: 100vh;
+  }
+  a { color: inherit; text-decoration: none; }
+  button { font-family: inherit; background: none; border: none; cursor: pointer; color: inherit; }
+  ::selection { background: var(--accent-primary); color: #fff; }
+
+  /* Subtle background gradients (Linear-ish) */
+  .bg-fx {
+    position: fixed; inset: 0; pointer-events: none; z-index: 0;
+    background:
+      radial-gradient(900px 600px at 80% -10%, rgba(124,92,255,0.10), transparent 60%),
+      radial-gradient(700px 500px at -10% 30%, rgba(94,231,223,0.05), transparent 60%),
+      radial-gradient(900px 700px at 50% 110%, rgba(124,92,255,0.06), transparent 60%);
+  }
+  html.light .bg-fx {
+    background:
+      radial-gradient(900px 600px at 80% -10%, rgba(124,92,255,0.06), transparent 60%),
+      radial-gradient(700px 500px at -10% 30%, rgba(94,231,223,0.04), transparent 60%);
+  }
+
+  /* Focus ring */
+  :focus-visible {
+    outline: 2px solid var(--accent-primary);
+    outline-offset: 3px;
+    border-radius: 6px;
+  }
+
+  /* Reveal on scroll */
+  .reveal { opacity: 0; transform: translateY(24px); transition: opacity 600ms var(--ease-apple), transform 600ms var(--ease-apple); }
+  .reveal.is-in { opacity: 1; transform: translateY(0); }
+
+  /* Pulse dot */
+  @keyframes pulse-dot {
+    0%   { box-shadow: 0 0 0 0 rgba(124,92,255,0.55); }
+    70%  { box-shadow: 0 0 0 10px rgba(124,92,255,0); }
+    100% { box-shadow: 0 0 0 0 rgba(124,92,255,0); }
+  }
+  .pulse-dot {
+    width: 6px; height: 6px; border-radius: 999px;
+    background: var(--accent-primary);
+    animation: pulse-dot 2s var(--ease-apple) infinite;
+  }
+
+  /* Fade-up stagger for hero name */
+  @keyframes hero-rise {
+    from { opacity: 0; transform: translateY(28px); }
+    to   { opacity: 1; transform: translateY(0); }
+  }
+  .hero-rise-1 { animation: hero-rise 700ms var(--ease-apple) both; }
+  .hero-rise-2 { animation: hero-rise 700ms 80ms var(--ease-apple) both; }
+  .hero-rise-3 { animation: hero-rise 700ms 160ms var(--ease-apple) both; }
+  .hero-rise-4 { animation: hero-rise 700ms 280ms var(--ease-apple) both; }
+  .hero-rise-5 { animation: hero-rise 700ms 380ms var(--ease-apple) both; }
+
+  /* Glass */
+  .glass {
+    background: var(--bg-glass);
+    backdrop-filter: blur(12px) saturate(180%);
+    -webkit-backdrop-filter: blur(12px) saturate(180%);
+    border-bottom: 1px solid var(--border-soft);
+    transition: backdrop-filter 300ms var(--ease-apple), background 300ms var(--ease-apple);
+  }
+  .glass.scrolled {
+    backdrop-filter: blur(24px) saturate(180%);
+    -webkit-backdrop-filter: blur(24px) saturate(180%);
+    background: rgba(10, 10, 14, 0.78);
+  }
+  html.light .glass.scrolled { background: rgba(250, 250, 247, 0.85); }
+
+  /* Card */
+  .card {
+    background: linear-gradient(180deg, rgba(255,255,255,0.03) 0%, rgba(255,255,255,0) 100%);
+    border: 1px solid var(--border-soft);
+    border-radius: 20px;
+    transition: all 350ms var(--ease-apple);
+  }
+  .card:hover {
+    border-color: var(--border-default);
+    background: linear-gradient(180deg, rgba(255,255,255,0.05) 0%, rgba(255,255,255,0.01) 100%);
+    transform: translateY(-4px);
+    box-shadow: 0 0 80px -20px var(--accent-glow);
+  }
+  html.light .card {
+    background: linear-gradient(180deg, rgba(0,0,0,0.02) 0%, rgba(0,0,0,0) 100%);
+  }
+  html.light .card:hover {
+    background: linear-gradient(180deg, rgba(0,0,0,0.04) 0%, rgba(0,0,0,0.01) 100%);
+    box-shadow: 0 8px 40px -16px rgba(124,92,255,0.20);
+  }
+
+  /* Buttons (Apple-ish) */
+  .btn-primary {
+    background: var(--text-primary);
+    color: var(--bg-base);
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 300ms var(--ease-apple);
+  }
+  .btn-primary:hover { transform: translateY(-1px); box-shadow: 0 10px 30px -10px rgba(245,245,247,0.25); }
+  .btn-secondary {
+    border: 1px solid var(--border-strong);
+    color: var(--text-primary);
+    padding: 12px 22px;
+    border-radius: 999px;
+    font-weight: 500;
+    font-size: 15px;
+    letter-spacing: -0.01em;
+    display: inline-flex; align-items: center; gap: 8px;
+    transition: all 300ms var(--ease-apple);
+  }
+  .btn-secondary:hover { background: var(--bg-surface-2); border-color: var(--text-secondary); }
+
+  /* Mono labels */
+  .mono { font-family: var(--mono); font-feature-settings: "ss01"; }
+  .num-tag { font-family: var(--mono); color: var(--text-tertiary); font-size: 13px; letter-spacing: 0.02em; }
+
+  /* Pill */
+  .pill {
+    display: inline-flex; align-items: center; gap: 8px;
+    padding: 6px 14px;
+    border-radius: 999px;
+    background: rgba(124,92,255,0.10);
+    border: 1px solid rgba(124,92,255,0.25);
+    color: var(--accent-primary);
+    font-size: 13px;
+    font-weight: 500;
+    letter-spacing: -0.005em;
+  }
+
+  /* Tech tag */
+  .tech {
+    font-family: var(--mono);
+    font-size: 11px;
+    padding: 4px 10px;
+    border-radius: 6px;
+    background: rgba(255,255,255,0.04);
+    border: 1px solid var(--border-soft);
+    color: var(--text-secondary);
+    transition: all 250ms var(--ease-apple);
+    white-space: nowrap;
+  }
+  .tech:hover { color: var(--text-primary); border-color: rgba(124,92,255,0.40); background: rgba(124,92,255,0.08); }
+  html.light .tech { background: rgba(0,0,0,0.03); }
+
+  /* Hide scrollbars in icon row */
+  .no-scrollbar::-webkit-scrollbar { display: none; }
+  .no-scrollbar { scrollbar-width: none; }
+
+  /* Sections */
+  section.section { position: relative; padding: 96px 0; border-top: 1px solid var(--border-soft); }
+  @media (max-width: 768px) { section.section { padding: 64px 0; } }
+
+  /* Display sizes */
+  .display-1 { font-size: clamp(48px, 9vw, 88px); line-height: 0.98; letter-spacing: -0.04em; font-weight: 600; }
+  .display-2 { font-size: clamp(36px, 5vw, 60px); line-height: 1.05; letter-spacing: -0.03em; font-weight: 600; }
+  .display-3 { font-size: clamp(24px, 3vw, 36px); line-height: 1.1; letter-spacing: -0.02em; font-weight: 600; }
+
+  /* Hero gradient name */
+  .name-gradient {
+    background: linear-gradient(180deg, #FFFFFF 0%, #C9C9D1 100%);
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+  }
+  html.light .name-gradient { background: linear-gradient(180deg, #0A0A0A 0%, #525252 100%); -webkit-background-clip: text; background-clip: text; -webkit-text-fill-color: transparent; }
+
+  /* Reduced motion */
+  @media (prefers-reduced-motion: reduce) {
+    *, *::before, *::after { animation: none !important; transition: none !important; }
+    .reveal { opacity: 1 !important; transform: none !important; }
+    html { scroll-behavior: auto; }
+  }
+
+  /* Avatar gradient */
+  .avatar-grad {
+    background: conic-gradient(from 220deg at 50% 50%, #7C5CFF 0%, #5EE7DF 35%, #FF7AC6 70%, #7C5CFF 100%);
+  }
+
+  /* Mobile menu */
+  .mobile-overlay {
+    position: fixed; inset: 0; z-index: 200;
+    background: rgba(7, 7, 10, 0.92);
+    backdrop-filter: blur(28px) saturate(180%);
+    -webkit-backdrop-filter: blur(28px) saturate(180%);
+    display: flex; flex-direction: column; align-items: center; justify-content: center;
+    gap: 24px;
+    opacity: 0; pointer-events: none;
+    transition: opacity 350ms var(--ease-apple);
+  }
+  .mobile-overlay.open { opacity: 1; pointer-events: auto; }
+  html.light .mobile-overlay { background: rgba(250, 250, 247, 0.92); }
 </style>
 </head>
-
 <body>
-
-<nav class="top">
-  <div class="wrap nav-inner">
-    <div class="nav-brand">Zakaria Abouhammadi</div>
-    <div class="nav-center">
-      <a href="#about" data-en="About">Sobre mí</a>
-      <a href="#experience" data-en="Experience">Experiencia</a>
-      <a href="#projects" data-en="Projects">Proyectos</a>
-      <a href="#certifications" data-en="Certifications">Certificaciones</a>
-      <a href="#contact" data-en="Contact">Contacto</a>
-    </div>
-    <div class="lang-toggle">
-      <button class="lang-btn active" data-lang="es">ES</button>
-      <span>/</span>
-      <button class="lang-btn" data-lang="en">EN</button>
-    </div>
-  </div>
-</nav>
-
-<header class="hero">
-  <div class="wrap">
-    <div class="hero-label" data-en="Portfolio / Valencia — Spain">Portfolio / Valencia — España</div>
-    <h1 class="name">
-      Zakaria Abouhammadi
-      <span class="line2" data-en="— Machine Learning Engineer">— Ingeniero de Aprendizaje Automático</span>
-    </h1>
-    <div class="hero-meta">
-      <p class="hero-bio" data-en="Final-year <strong>Computer Science Engineering</strong> student at the School of Engineering (ETSE) of the University of Valencia. Currently working as <strong>Machine Learning Engineer</strong> at Solver Intelligent Analytics, building real AI systems with LLMs, RAG and agents for the public administration.">Estudiante de último curso del <strong>Grado en Ingeniería Informática</strong> en la ETSE de la Universitat de València. Actualmente en prácticas como <strong>Ingeniero de Aprendizaje Automático</strong> en Solver Intelligent Analytics, trabajando en sistemas reales de IA con LLMs, RAG y agentes para la administración pública.</p>
-      <div class="hero-contacts">
-        <a class="mail" href="mailto:zakariaabouhammadi@gmail.com">zakariaabouhammadi@gmail.com</a>
-        <a href="https://github.com/Zakariajava" target="_blank" rel="noopener">github.com/Zakariajava</a>
-        <a href="https://www.linkedin.com/in/zakaria-abouhammadi-52aa5b1a0/" target="_blank" rel="noopener">linkedin.com/in/zakaria-abouhammadi</a>
-        <a class="cv" href="assets/cv/CV_Español.pdf" download data-en="Download CV (ES)">Descargar CV (ES)</a>
-        <a class="cv" href="assets/cv/CV_ingles.pdf" download data-en="Download CV (EN)">Descargar CV (EN)</a>
-      </div>
-    </div>
-  </div>
-</header>
-
-<section id="about">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-num">§ 01</span>
-      <h2 data-en="Building real AI systems at <em>Solver Intelligent Analytics</em>, where ideas meet production.">Construyendo sistemas reales de IA en <em>Solver Intelligent Analytics</em>, donde las ideas se convierten en producción.</h2>
-    </div>
-    <div class="stats">
-      <div class="stat">
-        <span class="stat-num">29</span>
-        <span class="stat-label" data-en="Public projects">Proyectos públicos</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">39</span>
-        <span class="stat-label" data-en="Certifications">Certificaciones</span>
-      </div>
-      <div class="stat">
-        <span class="stat-num">260h</span>
-        <span class="stat-label" data-en="Internship at Solver">Prácticas en Solver</span>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="experience">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-num">§ 02</span>
-      <h2 data-en="Experience">Experiencia</h2>
-    </div>
-    <div class="entry">
-      <div class="entry-dates">
-        <span data-en="Jan 2026 — Present">ene. 2026 — actualidad</span>
-        <span class="duration" data-en="4 months">4 meses</span>
-      </div>
-      <div class="entry-main">
-        <h3 data-en="Machine Learning Engineer">Ingeniero de Aprendizaje Automático</h3>
-        <div class="entry-org">
-          <span>Solver Intelligent Analytics</span>
-          <span class="sep">·</span>
-          <span data-en="Internship">Contrato de prácticas</span>
-        </div>
-        <p class="entry-desc" data-en="Built an AI assistant that automatically generates public procurement documents for the municipality of Encamp (Andorra). Through a guided conversation with the user, the system collects the required information and produces the final Word document, with twelve different variants depending on the type of procedure. Responsible for the full generation module and its integration with the client's multilingual chatbot.">Desarrollo de un asistente de IA que genera automáticamente documentos administrativos de contratación pública para el ayuntamiento de Encamp (Andorra). A partir de una conversación guiada con el usuario, el sistema recoge los datos necesarios y produce el documento final en formato Word, con doce variantes distintas según el tipo de procedimiento. Responsable del módulo completo de generación e integración con el chatbot multilingüe del cliente.</p>
-        <div class="entry-tags">
-          <span>LangGraph</span><span>RAG</span><span>Python</span><span>python-docx</span><span>FastAPI</span><span>Docker</span><span>vLLM</span><span>Qwen3</span>
-        </div>
-      </div>
-      <div class="entry-meta">
-        <div data-en="Valencia, Spain">Valencia, España</div>
-        <div data-en="Hybrid">Híbrido</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="education">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-num">§ 03</span>
-      <h2 data-en="Education">Educación</h2>
-    </div>
-    <div class="entry">
-      <div class="entry-dates">
-        <span data-en="Sep 2022 — Sep 2026">sept. 2022 — sept. 2026</span>
-        <span class="duration" data-en="4 years">4 años</span>
-      </div>
-      <div class="entry-main">
-        <h3 data-en="BSc in Computer Science Engineering">Grado en Ingeniería Informática</h3>
-        <div class="entry-org">
-          <span>Universitat de València</span>
-          <span class="sep">·</span>
-          <span data-en="School of Engineering (ETSE)">Escola Tècnica Superior d'Enginyeria (ETSE)</span>
-        </div>
-        <p class="entry-desc" data-en="Final year of the degree, combined with the curricular internship at Solver and with continuous self-taught training on LLMs, RAG, agents, PyTorch and modern backend stacks.">Último curso del grado, compaginado con las prácticas curriculares en Solver y con una formación autodidacta continua en LLMs, RAG, agentes, PyTorch y stacks modernos de backend.</p>
-        <div class="entry-tags">
-          <span>Algorithms</span><span>Data Structures</span><span>Databases</span><span>Software Engineering</span><span>AI</span><span>Networks</span>
-        </div>
-      </div>
-      <div class="entry-meta">
-        <div>Valencia, España</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<section id="projects">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-num">§ 04</span>
-      <h2 data-en="A selection of personal projects, coursework and experiments, <em>where I put into practice what I keep studying on my own.</em>">Una selección de proyectos personales, trabajos académicos y experimentos, <em>donde pongo en práctica lo que voy estudiando por mi cuenta.</em></h2>
-    </div>
-
-    <div class="filters">
-      <button class="filter-btn active" data-filter="all" data-en="All">Todos <span class="count">(29)</span></button>
-      <button class="filter-btn" data-filter="llm">LLMs · Agents · RAG <span class="count">(10)</span></button>
-      <button class="filter-btn" data-filter="dl">Deep Learning <span class="count">(6)</span></button>
-      <button class="filter-btn" data-filter="ml">Machine Learning <span class="count">(7)</span></button>
-      <button class="filter-btn" data-filter="sys" data-en="Systems · Other">Sistemas · Otros <span class="count">(6)</span></button>
-    </div>
-
-    <div class="list">
-
-      <a class="project" href="https://github.com/Zakariajava/CodeScribe" target="_blank" rel="noopener" data-cat="llm">
-        <span class="project-num">01</span>
-        <div class="project-main">
-          <div class="project-title"><h3>CodeScribe</h3><span class="cat">LLM · CLI Tool</span></div>
-          <p data-en="A CLI tool that scans an entire project and adds documentation and comments to every source file using a local LLM via Ollama. The pipeline is built with LangGraph for a deterministic, debuggable flow: scan → classify → chunk → LLM → post-process → write back. Supports dry-run with diff, backups, an interactive settings menu and automatic README generation.">Herramienta de línea de comandos que escanea un proyecto entero y añade documentación y comentarios a cada fichero fuente usando un LLM local vía Ollama. Pipeline determinista construido con LangGraph: escaneo → clasificación → chunking → LLM → post-procesado → escritura. Soporta dry-run con diff, backups, menú interactivo y generación automática de README.</p>
-          <div class="tech"><span>Python</span><span>LangGraph</span><span>Ollama</span><span>Click</span><span>Rich</span><span>uv</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <div class="project private" data-cat="llm">
-        <span class="project-num">02</span>
-        <div class="project-main">
-          <div class="project-title"><h3>asistente-uv</h3><span class="cat">TFG · RAG Agent</span></div>
-          <p data-en="My Bachelor's final project: a RAG assistant that answers questions about the University of Valencia using official information extracted from uv.es. It combines a local document store with real-time web search when information is missing, and grows automatically with every new query. ReAct-style agent on LangGraph with hybrid retrieval (BM25 + dense + RRF) and Playwright-based scraping.">Mi Trabajo de Fin de Grado: un asistente RAG que responde preguntas sobre la Universitat de València usando información oficial extraída de uv.es. Combina una base local de documentos indexados con búsqueda web en tiempo real cuando la información no está disponible, y se enriquece automáticamente con cada consulta. Agente ReAct sobre LangGraph con retrieval híbrido (BM25 + dense + RRF) y scraping con Playwright.</p>
-          <div class="tech"><span>LangGraph</span><span>Ollama</span><span>ChromaDB</span><span>BM25</span><span>Playwright</span><span>FastAPI</span><span>React</span><span>Docker</span></div>
-        </div>
-        <span class="project-cta" data-en="Private repo">Repositorio privado</span>
-      </div>
-
-      <a class="project" href="https://github.com/Zakariajava/chatbot" target="_blank" rel="noopener" data-cat="llm">
-        <span class="project-num">03</span>
-        <div class="project-main">
-          <div class="project-title"><h3>chatbot — LangGraph RAG Assistant</h3><span class="cat">LLM · Multilingual RAG</span></div>
-          <p data-en="Conversational QA system with hybrid retrieval (BM25 + dense embeddings) fused via Reciprocal Rank Fusion, strict chunk-level citations, adaptive Selenium-based web enrichment and short/long-term memory backed by SQLite. Everything orchestrated in a single LangGraph instance with clearly contracted nodes. End-to-end multilingual.">Sistema de QA conversacional con retrieval híbrido (BM25 + dense) fusionado con Reciprocal Rank Fusion, citas estrictas por chunk, enriquecimiento web adaptativo con Selenium y memoria a corto/largo plazo en SQLite. Todo orquestado en un único grafo de LangGraph con nodos contractualizados. Multilingüe de principio a fin.</p>
-          <div class="tech"><span>LangGraph</span><span>BM25</span><span>Dense Embeddings</span><span>RRF</span><span>SQLite</span><span>Selenium</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project" href="https://github.com/Zakariajava/llama_4_scratch" target="_blank" rel="noopener" data-cat="llm">
-        <span class="project-num">04</span>
-        <div class="project-main">
-          <div class="project-title"><h3>llama_4_scratch</h3><span class="cat">Transformers · From Scratch</span></div>
-          <p data-en="From-scratch implementation and step-by-step explanation of the key components of a LLaMA-style transformer: tokenizer, scaled dot-product attention and Multi-Head Latent Attention. Every operation is commented with numerical examples and visualizations to understand what's happening under the hood rather than just using a library.">Implementación y explicación paso a paso de los componentes clave de un transformer tipo LLaMA: tokenizador, scaled dot-product attention y Multi-Head Latent Attention. Cada operación comentada con ejemplos numéricos y visualizaciones para entender qué ocurre por dentro en vez de limitarme a usar una librería.</p>
-          <div class="tech"><span>PyTorch</span><span>NumPy</span><span>Jupyter</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project" href="https://github.com/Zakariajava/GiveMeSomeCredit" target="_blank" rel="noopener" data-cat="ml">
-        <span class="project-num">05</span>
-        <div class="project-main">
-          <div class="project-title"><h3>GiveMeSomeCredit — Default Risk</h3><span class="cat">Credit Risk · PyTorch</span></div>
-          <p data-en="Clean, reproducible baseline to predict the probability of serious delinquency within two years using PyTorch. Covers data audit, median imputation, quantile clipping, log1p transforms, RobustScaler, an MLP with BatchNorm and GELU, mixed-precision training and early stopping on ROC-AUC, plus full evaluation with ROC and Precision–Recall curves.">Baseline limpio y reproducible para predecir la probabilidad de impago grave a dos años con PyTorch. Cubre auditoría de datos, imputación por mediana, recortes por cuantiles, transformaciones log1p, RobustScaler, una MLP con BatchNorm y GELU, entrenamiento con precisión mixta y early stopping sobre ROC-AUC, más evaluación completa con curvas ROC y Precision–Recall.</p>
-          <div class="tech"><span>PyTorch</span><span>scikit-learn</span><span>pandas</span><span>MLP</span><span>AMP</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/data-chat" target="_blank" rel="noopener" data-cat="llm" data-extra="1">
-        <span class="project-num">06</span>
-        <div class="project-main">
-          <div class="project-title"><h3>data-chat</h3><span class="cat">Agents · Text-to-SQL</span></div>
-          <p data-en="Exploration of text-to-SQL and data chat patterns with agents: turn natural language questions into structured queries over datasets, execute them and return summarized answers. A base for future analytical assistants.">Exploración de patrones de text-to-SQL y data chat con agentes: convertir preguntas en lenguaje natural en consultas estructuradas sobre conjuntos de datos, ejecutarlas y devolver la respuesta ya resumida. Base para futuros asistentes analíticos.</p>
-          <div class="tech"><span>LangChain</span><span>LLMs</span><span>SQL</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/bm25-dense-etrieval" target="_blank" rel="noopener" data-cat="llm" data-extra="1">
-        <span class="project-num">07</span>
-        <div class="project-main">
-          <div class="project-title"><h3>bm25-dense-retrieval</h3><span class="cat">Information Retrieval</span></div>
-          <p data-en="Practical study of hybrid retrieval: combining BM25 (lexical) with dense embeddings (semantic) to go beyond the limits of either approach on its own. Experiments with Reciprocal Rank Fusion and performance comparison across query types.">Estudio práctico del retrieval híbrido: combinar BM25 (léxico) con dense embeddings (semántico) para superar las limitaciones de cada uno por separado. Experimentos con Reciprocal Rank Fusion y comparativa de rendimiento según el tipo de pregunta.</p>
-          <div class="tech"><span>BM25</span><span>Embeddings</span><span>RRF</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/multiquery-hyde-rag-chroma-cloud" target="_blank" rel="noopener" data-cat="llm" data-extra="1">
-        <span class="project-num">08</span>
-        <div class="project-main">
-          <div class="project-title"><h3>multiquery-hyde-rag</h3><span class="cat">RAG · Advanced</span></div>
-          <p data-en="A RAG pipeline combining multi-query retrieval (automatic rewriting of the question into several variants) with HyDE (Hypothetical Document Embeddings) on ChromaDB Cloud. Aims to improve recall on ambiguous or poorly phrased queries.">Pipeline de RAG que combina multi-query retrieval (reformulación automática de la pregunta en varias variantes) con HyDE (Hypothetical Document Embeddings) sobre ChromaDB Cloud. Busca mejorar el recall en preguntas ambiguas o mal formuladas.</p>
-          <div class="tech"><span>ChromaDB</span><span>HyDE</span><span>LangChain</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/advanced-hyde-rag" target="_blank" rel="noopener" data-cat="llm" data-extra="1">
-        <span class="project-num">09</span>
-        <div class="project-main">
-          <div class="project-title"><h3>advanced-hyde-rag</h3><span class="cat">RAG · HyDE</span></div>
-          <p data-en="A more elaborate version of the HyDE pipeline with query rewriting, hypothetical document generation and semantic reranking after the initial retrieval step. Useful to understand where the quality bottlenecks sit in a real RAG system.">Versión más elaborada del pipeline HyDE con reescritura de consulta, generación de documentos hipotéticos y reranking semántico posterior al retrieval inicial. Sirve para entender dónde están los cuellos de botella de calidad en un sistema RAG real.</p>
-          <div class="tech"><span>HyDE</span><span>Reranking</span><span>Embeddings</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/ranked-rag-pipeline" target="_blank" rel="noopener" data-cat="llm" data-extra="1">
-        <span class="project-num">10</span>
-        <div class="project-main">
-          <div class="project-title"><h3>ranked-rag-pipeline</h3><span class="cat">RAG · Reranking</span></div>
-          <p data-en="A RAG pipeline with a cross-encoder reranker to boost context precision before passing it to the LLM. Experimentation with different reranking models and analysis of their impact on final answer quality.">Pipeline de RAG con cross-encoder reranker para elevar la precisión del contexto antes de pasárselo al LLM. Experimentación con distintos modelos de reranking y análisis del impacto en la calidad de las respuestas.</p>
-          <div class="tech"><span>Cross-Encoder</span><span>Sentence Transformers</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/MultiagentDebate" target="_blank" rel="noopener" data-cat="llm" data-extra="1">
-        <span class="project-num">11</span>
-        <div class="project-main">
-          <div class="project-title"><h3>MultiagentDebate</h3><span class="cat">Multi-Agent</span></div>
-          <p data-en="A multi-agent system where several LLMs act as participants in a structured debate, with a judge that evaluates the arguments. Useful to explore how confronting ideas between models can improve the final reasoning quality.">Sistema multiagente en el que varios LLMs actúan como participantes en un debate estructurado, con un juez que evalúa los argumentos. Explora cómo la confrontación de ideas entre modelos puede mejorar la calidad del razonamiento final.</p>
-          <div class="tech"><span>Python</span><span>LLMs</span><span>Multi-Agent</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/VisionTransformer" target="_blank" rel="noopener" data-cat="dl" data-extra="1">
-        <span class="project-num">12</span>
-        <div class="project-main">
-          <div class="project-title"><h3>VisionTransformer</h3><span class="cat">Computer Vision</span></div>
-          <p data-en="Implementation of a Vision Transformer for image classification following the original paper: patch embedding, positional encoding, transformer encoder and classification head. Comparative analysis against traditional CNN architectures.">Implementación de un Vision Transformer para clasificación de imágenes siguiendo el paper original: patch embedding, positional encoding, encoder transformer y cabeza de clasificación. Análisis comparativo con arquitecturas CNN tradicionales.</p>
-          <div class="tech"><span>PyTorch</span><span>Transformers</span><span>CV</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/PoetryTransformerPredict" target="_blank" rel="noopener" data-cat="dl" data-extra="1">
-        <span class="project-num">13</span>
-        <div class="project-main">
-          <div class="project-title"><h3>PoetryTransformerPredict</h3><span class="cat">NLP · Generation</span></div>
-          <p data-en="An autoregressive transformer model trained to generate poetry character by character. An experiment to deeply understand the training process, temperature-based sampling and model behavior in creative domains.">Modelo transformer autoregresivo entrenado para generar poesía carácter a carácter. Experimento para entender en profundidad el proceso de entrenamiento, el sampling con temperatura y el comportamiento del modelo en dominios creativos.</p>
-          <div class="tech"><span>PyTorch</span><span>Transformers</span><span>NLP</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/Brain-Tumor-Classification" target="_blank" rel="noopener" data-cat="dl" data-extra="1">
-        <span class="project-num">14</span>
-        <div class="project-main">
-          <div class="project-title"><h3>Brain-Tumor-Classification</h3><span class="cat">Medical Imaging · CNN</span></div>
-          <p data-en="Automatic classification of brain MRI images across four classes (glioma, meningioma, pituitary and healthy) with convolutional networks. Data augmentation, transfer learning from pretrained models and confusion-matrix analysis.">Clasificación automática de imágenes de resonancia magnética cerebral entre cuatro clases (glioma, meningioma, pituitario y sano) con redes convolucionales. Aumento de datos, transfer learning desde modelos preentrenados y análisis de matriz de confusión.</p>
-          <div class="tech"><span>TensorFlow</span><span>CNN</span><span>Transfer Learning</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/Amazigh-Alphabets-Recognition" target="_blank" rel="noopener" data-cat="dl" data-extra="1">
-        <span class="project-num">15</span>
-        <div class="project-main">
-          <div class="project-title"><h3>Amazigh-Alphabets-Recognition</h3><span class="cat">OCR · Tifinagh</span></div>
-          <p data-en="Recognition of handwritten characters of the tifinagh alphabet (Amazigh language) using convolutional networks. A project with a personal and cultural angle beyond the technical one: the scarcity of available datasets calls for careful data preparation and augmentation.">Reconocimiento de caracteres manuscritos del alfabeto tifinagh (lengua amazigh) con redes convolucionales. Un proyecto con componente personal y cultural además de técnico: la escasez de datasets disponibles obliga a un trabajo cuidadoso de preparación y aumentación.</p>
-          <div class="tech"><span>CNN</span><span>OCR</span><span>Data Augmentation</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/Handwritten-Alphabets-Recognition" target="_blank" rel="noopener" data-cat="dl" data-extra="1">
-        <span class="project-num">16</span>
-        <div class="project-main">
-          <div class="project-title"><h3>Handwritten-Alphabets-Recognition</h3><span class="cat">OCR</span></div>
-          <p data-en="A convolutional network to classify handwritten letters of the Latin alphabet. An early computer vision project to nail down the full workflow: data preparation, model design, training with validation and final evaluation.">Red neuronal convolucional para clasificar letras manuscritas del alfabeto latino. Proyecto inicial de visión por computador para afianzar el flujo completo: preparación de datos, diseño del modelo, entrenamiento con validación y evaluación final.</p>
-          <div class="tech"><span>CNN</span><span>Keras</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/Handwritten-Digit-Recognition" target="_blank" rel="noopener" data-cat="dl" data-extra="1">
-        <span class="project-num">17</span>
-        <div class="project-main">
-          <div class="project-title"><h3>Handwritten-Digit-Recognition</h3><span class="cat">OCR · MNIST</span></div>
-          <p data-en="The classic starting point for everyone getting into deep learning: a convolutional network trained on MNIST. I keep it in the portfolio because it was my first hands-on contact with the field and helped me understand the building blocks that show up in every more complex architecture.">El clásico de todo el que empieza con deep learning: una red convolucional entrenada sobre MNIST. Lo mantengo en el portfolio porque fue el primer contacto práctico con el campo y me permitió entender las piezas básicas que se repiten en arquitecturas más complejas.</p>
-          <div class="tech"><span>TensorFlow</span><span>CNN</span><span>MNIST</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/E-Commerce_Fraud_Detection" target="_blank" rel="noopener" data-cat="ml" data-extra="1">
-        <span class="project-num">18</span>
-        <div class="project-main">
-          <div class="project-title"><h3>E-Commerce Fraud Detection</h3><span class="cat">Fraud · Imbalance</span></div>
-          <p data-en="Fraud detection on e-commerce transactions with strongly imbalanced data. Work with resampling techniques, metrics suited for the problem (ROC-AUC, PR-AUC) and a comparison between classical models and ensembles.">Detección de fraude en transacciones de comercio electrónico con datos fuertemente desbalanceados. Trabajo con técnicas de resampling, métricas adecuadas al problema (ROC-AUC, PR-AUC) y comparativa de modelos clásicos frente a ensembles.</p>
-          <div class="tech"><span>scikit-learn</span><span>pandas</span><span>Imbalanced-learn</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/New_York_City_Taxi_Trip_Duration_pred" target="_blank" rel="noopener" data-cat="ml" data-extra="1">
-        <span class="project-num">19</span>
-        <div class="project-main">
-          <div class="project-title"><h3>NYC Taxi Trip Duration</h3><span class="cat">Regression · Feature Eng.</span></div>
-          <p data-en="Predicting the duration of NYC taxi trips (a classic Kaggle competition) with geospatial feature engineering, temporal variable encoding and regression models. A solid case study in feature engineering.">Predicción de la duración de viajes de taxi en Nueva York (competición clásica de Kaggle) con ingeniería de características geoespaciales, codificación de variables temporales y modelos de regresión. Buen caso de estudio para feature engineering.</p>
-          <div class="tech"><span>XGBoost</span><span>pandas</span><span>Geopandas</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/HEART_FAILURE" target="_blank" rel="noopener" data-cat="ml" data-extra="1">
-        <span class="project-num">20</span>
-        <div class="project-main">
-          <div class="project-title"><h3>Heart Failure Prediction</h3><span class="cat">Healthcare</span></div>
-          <p data-en="Prediction of heart failure events from clinical variables. Exploratory analysis of the dataset, feature selection and comparison between classical models and boosting trees.">Predicción de eventos de insuficiencia cardíaca a partir de variables clínicas. Análisis exploratorio del dataset, selección de características y comparación entre modelos clásicos y árboles con boosting.</p>
-          <div class="tech"><span>scikit-learn</span><span>Healthcare</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/heart-disease-prediction" target="_blank" rel="noopener" data-cat="ml" data-extra="1">
-        <span class="project-num">21</span>
-        <div class="project-main">
-          <div class="project-title"><h3>heart-disease-prediction</h3><span class="cat">Healthcare · Interpretability</span></div>
-          <p data-en="A classification model to predict the presence of heart disease on the UCI dataset. The focus is on interpretability: feature importance, error analysis and optimal threshold selection based on the cost of false negatives.">Modelo de clasificación para predecir la presencia de enfermedad cardíaca con el dataset UCI. El foco está en la interpretabilidad: importancia de variables, análisis de errores y selección del umbral óptimo en función del coste de los falsos negativos.</p>
-          <div class="tech"><span>scikit-learn</span><span>Logistic Regression</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/Housing-Price" target="_blank" rel="noopener" data-cat="ml" data-extra="1">
-        <span class="project-num">22</span>
-        <div class="project-main">
-          <div class="project-title"><h3>Housing Price Prediction</h3><span class="cat">Regression</span></div>
-          <p data-en="Regression on housing prices with the classic California dataset: exploratory analysis, outlier treatment, categorical variable encoding and a comparison between linear regression, trees and gradient boosting.">Regresión sobre precios de viviendas con el dataset clásico de California: análisis exploratorio, tratamiento de outliers, codificación de variables categóricas y comparación entre regresión lineal, árboles y gradient boosting.</p>
-          <div class="tech"><span>scikit-learn</span><span>Pandas</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/Recommender_Systems" target="_blank" rel="noopener" data-cat="ml" data-extra="1">
-        <span class="project-num">23</span>
-        <div class="project-main">
-          <div class="project-title"><h3>Recommender Systems</h3><span class="cat">Collaborative Filtering</span></div>
-          <p data-en="A practical exploration of recommender systems: user-based and item-based collaborative filtering, matrix factorization and content-based recommenders. An analysis of their strengths and limitations depending on the type of data available.">Exploración práctica de sistemas de recomendación: filtrado colaborativo por usuario y por ítem, factorización matricial y recomendadores basados en contenido. Análisis de sus fortalezas y limitaciones según el tipo de datos.</p>
-          <div class="tech"><span>Surprise</span><span>NumPy</span><span>Collaborative Filtering</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/collab-sockets" target="_blank" rel="noopener" data-cat="sys" data-extra="1">
-        <span class="project-num">24</span>
-        <div class="project-main">
-          <div class="project-title"><h3>collab-sockets</h3><span class="cat">Networking · Java</span></div>
-          <p data-en="A Java application for real-time collaborative editing over TCP sockets. Explores the classic problems of synchronization, concurrency and change propagation across multiple clients connected to the same server.">Aplicación Java para edición colaborativa en tiempo real a través de sockets TCP. Explora los problemas clásicos de sincronización, concurrencia y propagación de cambios entre varios clientes conectados al mismo servidor.</p>
-          <div class="tech"><span>Java</span><span>Sockets</span><span>Concurrency</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/minilang" target="_blank" rel="noopener" data-cat="sys" data-extra="1">
-        <span class="project-num">25</span>
-        <div class="project-main">
-          <div class="project-title"><h3>minilang</h3><span class="cat">Compilers</span></div>
-          <p data-en="An interpreter for a small, minimalist programming language of my own. Covers the full flow: lexical analysis, parsing with AST construction, recursive evaluation and error handling.">Intérprete de un lenguaje de programación propio y minimalista. Cubre el flujo completo: análisis léxico, análisis sintáctico con construcción del AST, evaluación recursiva y manejo de errores.</p>
-          <div class="tech"><span>Python</span><span>Lexer</span><span>Parser</span><span>AST</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/TiendaWeb" target="_blank" rel="noopener" data-cat="sys" data-extra="1">
-        <span class="project-num">26</span>
-        <div class="project-main">
-          <div class="project-title"><h3>TiendaWeb</h3><span class="cat">Full-stack</span></div>
-          <p data-en="A small online shop web application implemented in pure JavaScript: product catalog, shopping cart, basic checkout flow. A useful project to practice DOM manipulation, local state and UI design without frameworks.">Pequeña aplicación web de tienda online implementada con JavaScript puro: catálogo de productos, carrito de la compra, flujo de compra básico. Proyecto útil para practicar manipulación del DOM, estado local y diseño de interfaces sin frameworks.</p>
-          <div class="tech"><span>JavaScript</span><span>HTML/CSS</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/PhongIllumination" target="_blank" rel="noopener" data-cat="sys" data-extra="1">
-        <span class="project-num">27</span>
-        <div class="project-main">
-          <div class="project-title"><h3>PhongIllumination</h3><span class="cat">Graphics · OpenGL</span></div>
-          <p data-en="An implementation of the Phong illumination model (ambient, diffuse and specular) in C with OpenGL. A solid exercise to understand in detail how the color of each fragment is computed from material properties and incoming light.">Implementación del modelo de iluminación de Phong (ambiente, difusa y especular) en C con OpenGL. Un buen ejercicio para entender en detalle cómo se calcula el color de cada fragmento a partir de las propiedades del material y la luz incidente.</p>
-          <div class="tech"><span>C</span><span>OpenGL</span><span>Shaders</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava/ISII_AdministrarHospitales" target="_blank" rel="noopener" data-cat="sys" data-extra="1">
-        <span class="project-num">28</span>
-        <div class="project-main">
-          <div class="project-title"><h3>ISII · Administrar Hospitales</h3><span class="cat">Software Engineering</span></div>
-          <p data-en="A hospital management system developed as a practical assignment for Software Engineering II. Design patterns, layered architecture and teamwork with version control. A complete classical software engineering exercise.">Sistema de gestión hospitalaria desarrollado como práctica de Ingeniería del Software II. Patrones de diseño, separación de capas y trabajo en equipo con control de versiones. Ejercicio completo de software engineering clásico.</p>
-          <div class="tech"><span>Java</span><span>OOP</span><span>Design Patterns</span></div>
-        </div>
-        <span class="project-cta" data-en="View repo">Ver repositorio</span>
-      </a>
-
-      <a class="project hidden" href="https://github.com/Zakariajava?tab=repositories" target="_blank" rel="noopener" data-cat="sys" data-extra="1">
-        <span class="project-num">29</span>
-        <div class="project-main">
-          <div class="project-title"><h3 data-en="Other repositories">Otros repositorios</h3><span class="cat">+ More</span></div>
-          <p data-en="These are the main projects, but there are more experiments and coursework on my profile. If you want the full catalog, you can browse the GitHub profile directly.">Estos son los proyectos principales, pero en mi perfil hay más experimentos y trabajos de curso. Si te interesa ver el catálogo completo, puedes entrar directamente al perfil.</p>
-          <div class="tech"><span>GitHub</span></div>
-        </div>
-        <span class="project-cta" data-en="View profile">Ver perfil</span>
-      </a>
-
-    </div>
-
-    <div class="expand-row">
-      <button class="expand-btn" data-target="projects" data-en-more="View all 29 projects" data-en-less="Show less" data-es-more="Ver los 29 proyectos" data-es-less="Ver menos">Ver los 29 proyectos</button>
-    </div>
-  </div>
-</section>
-
-<section id="certifications">
-  <div class="wrap">
-    <div class="section-head">
-      <span class="section-num">§ 05</span>
-      <h2 data-en="39 certifications earned over the last two years, <em>complementing the degree with specific training in AI, ML and development.</em>">39 certificaciones obtenidas a lo largo de los últimos dos años, <em>complementando la formación del grado con cursos específicos en IA, ML y desarrollo.</em></h2>
-    </div>
-
-    <div class="certs-flat">
-
-      <a class="cert" href="https://www.coursera.org/account/accomplishments/specialization/UROX1SUIDGWA" target="_blank" rel="noopener">
-        <span class="cert-num">01</span>
-        <span class="cert-title">Building AI Agents and Agentic Workflows</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Oct 2025</span>
-      </a>
-      <a class="cert" href="https://www.coursera.org/account/accomplishments/specialization/ZYEUD91L9FYS" target="_blank" rel="noopener">
-        <span class="cert-num">02</span>
-        <span class="cert-title">PyTorch for Deep Learning</span>
-        <span class="cert-issuer">DeepLearning.AI</span>
-        <span class="cert-date">Nov 2025</span>
-      </a>
-      <a class="cert" href="https://www.coursera.org/account/accomplishments/verify/TSXE4ZG7MDFQ" target="_blank" rel="noopener">
-        <span class="cert-num">03</span>
-        <span class="cert-title">Advanced RAG with Vector Databases and Retrievers</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Sep 2025</span>
-      </a>
-      <a class="cert" href="https://www.coursera.org/account/accomplishments/specialization/6MOISRA2N5WK" target="_blank" rel="noopener">
-        <span class="cert-num">04</span>
-        <span class="cert-title">AI for Medicine Specialization</span>
-        <span class="cert-issuer">Google Cloud</span>
-        <span class="cert-date">Oct 2025</span>
-      </a>
-      <a class="cert" href="https://www.coursera.org/account/accomplishments/specialization/EOAJ4XETDWMR" target="_blank" rel="noopener">
-        <span class="cert-num">05</span>
-        <span class="cert-title">Deep Learning Specialization</span>
-        <span class="cert-issuer">DeepLearning.AI</span>
-        <span class="cert-date">Feb 2025</span>
-      </a>
-
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/specialization/W2UQZCZMJHKV" target="_blank" rel="noopener">
-        <span class="cert-num">06</span>
-        <span class="cert-title">RAG for Generative AI Applications</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Sep 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/records/AWXAVIH36K1F" target="_blank" rel="noopener">
-        <span class="cert-num">07</span>
-        <span class="cert-title">Agentic AI with LangGraph, CrewAI, AutoGen and BeeAI</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Sep 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/specialization/X3774PPHATF6" target="_blank" rel="noopener">
-        <span class="cert-num">08</span>
-        <span class="cert-title">IBM RAG and Agentic AI</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Sep 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/V82LDS06UQN4" target="_blank" rel="noopener">
-        <span class="cert-num">09</span>
-        <span class="cert-title">Agentic AI with LangChain and LangGraph</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Jul 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/ZGQWDFK0VO5H" target="_blank" rel="noopener">
-        <span class="cert-num">10</span>
-        <span class="cert-title">Fundamentals of Building AI Agents</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Jul 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/IW6XFBO3EGSN" target="_blank" rel="noopener">
-        <span class="cert-num">11</span>
-        <span class="cert-title">Build Multimodal Generative AI Applications</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Jul 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/K46CQ74O5CKA" target="_blank" rel="noopener">
-        <span class="cert-num">12</span>
-        <span class="cert-title">Vector Databases for RAG: An Introduction</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Jul 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/596YXNIVML4A" target="_blank" rel="noopener">
-        <span class="cert-num">13</span>
-        <span class="cert-title">Build RAG Applications: Get Started</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Jul 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/2EPBGK0YLTIP" target="_blank" rel="noopener">
-        <span class="cert-num">14</span>
-        <span class="cert-title">Develop Generative AI Applications: Get Started</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Jul 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/specialization/59X2YJWXX9SS" target="_blank" rel="noopener">
-        <span class="cert-num">15</span>
-        <span class="cert-title">IBM Introduction to Machine Learning</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Nov 2024</span>
-      </a>
-
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/records/CK4L1IG1BJ5L" target="_blank" rel="noopener">
-        <span class="cert-num">16</span>
-        <span class="cert-title">PyTorch: Advanced Architectures and Deployment</span>
-        <span class="cert-issuer">DeepLearning.AI</span>
-        <span class="cert-date">Nov 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/records/CR0RUHDBQ5CS" target="_blank" rel="noopener">
-        <span class="cert-num">17</span>
-        <span class="cert-title">PyTorch: Techniques and Ecosystem Tools</span>
-        <span class="cert-issuer">DeepLearning.AI</span>
-        <span class="cert-date">Nov 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/records/6PJ2XY48LZZO" target="_blank" rel="noopener">
-        <span class="cert-num">18</span>
-        <span class="cert-title">PyTorch: Fundamentals</span>
-        <span class="cert-issuer">DeepLearning.AI</span>
-        <span class="cert-date">Nov 2025</span>
-      </a>
-
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/K2LDLD7XJIM6" target="_blank" rel="noopener">
-        <span class="cert-num">19</span>
-        <span class="cert-title">Transformer Models and BERT Model</span>
-        <span class="cert-issuer">Google Cloud</span>
-        <span class="cert-date">Mar 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/X51IOTBS2BSE" target="_blank" rel="noopener">
-        <span class="cert-num">20</span>
-        <span class="cert-title">Google AI Essentials</span>
-        <span class="cert-issuer">Google</span>
-        <span class="cert-date">Feb 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/LJPL5IN4LHON" target="_blank" rel="noopener">
-        <span class="cert-num">21</span>
-        <span class="cert-title">Attention Mechanism</span>
-        <span class="cert-issuer">Google Cloud</span>
-        <span class="cert-date">Feb 2025</span>
-      </a>
-
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/OJG0HNZ0ZQC9" target="_blank" rel="noopener">
-        <span class="cert-num">22</span>
-        <span class="cert-title">Foundations and Core Concepts of PyTorch</span>
-        <span class="cert-issuer">Packt</span>
-        <span class="cert-date">Sep 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/N4BCRQSYJ7D2" target="_blank" rel="noopener">
-        <span class="cert-num">23</span>
-        <span class="cert-title">Building and Training Neural Networks with PyTorch</span>
-        <span class="cert-issuer">Packt</span>
-        <span class="cert-date">Sep 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/28DS7P6LJIE8" target="_blank" rel="noopener">
-        <span class="cert-num">24</span>
-        <span class="cert-title">AI Enhancement with Knowledge Graphs — Mastering RAG Systems</span>
-        <span class="cert-issuer">Packt</span>
-        <span class="cert-date">Jul 2025</span>
-      </a>
-
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/NFNQ1HP3ODGH" target="_blank" rel="noopener">
-        <span class="cert-num">25</span>
-        <span class="cert-title">AI Infrastructure and Operations Fundamentals</span>
-        <span class="cert-issuer">NVIDIA</span>
-        <span class="cert-date">Feb 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/AUQMCFVGVRP0" target="_blank" rel="noopener">
-        <span class="cert-num">26</span>
-        <span class="cert-title">Introduction to Networking</span>
-        <span class="cert-issuer">NVIDIA</span>
-        <span class="cert-date">Feb 2025</span>
-      </a>
-
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/VHSLGPRZGP26" target="_blank" rel="noopener">
-        <span class="cert-num">27</span>
-        <span class="cert-title">Advanced Styling with Responsive Design</span>
-        <span class="cert-issuer">University of Michigan</span>
-        <span class="cert-date">Feb 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/JODZD9YLKDBT" target="_blank" rel="noopener">
-        <span class="cert-num">28</span>
-        <span class="cert-title">Interactivity with JavaScript</span>
-        <span class="cert-issuer">University of Michigan</span>
-        <span class="cert-date">Feb 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/FDU5K7VCNMBP" target="_blank" rel="noopener">
-        <span class="cert-num">29</span>
-        <span class="cert-title">Introduction to CSS3</span>
-        <span class="cert-issuer">University of Michigan</span>
-        <span class="cert-date">Feb 2025</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/B9898ISXJUTR" target="_blank" rel="noopener">
-        <span class="cert-num">30</span>
-        <span class="cert-title">Introduction to HTML5</span>
-        <span class="cert-issuer">University of Michigan</span>
-        <span class="cert-date">Feb 2025</span>
-      </a>
-
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/certificate/HYIO24EKA6SX" target="_blank" rel="noopener">
-        <span class="cert-num">31</span>
-        <span class="cert-title">Supervised Machine Learning: Classification</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">Nov 2024</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/LDQ28KIIHHG7" target="_blank" rel="noopener">
-        <span class="cert-num">32</span>
-        <span class="cert-title">Supervised Machine Learning: Regression</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">2024</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/certificate/52M2R676600S" target="_blank" rel="noopener">
-        <span class="cert-num">33</span>
-        <span class="cert-title">Unsupervised Machine Learning</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">2024</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/certificate/8PVON5MQJ62R" target="_blank" rel="noopener">
-        <span class="cert-num">34</span>
-        <span class="cert-title">Exploratory Data Analysis for Machine Learning</span>
-        <span class="cert-issuer">IBM</span>
-        <span class="cert-date">2024</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/certificate/KNJNB8WQWAJP" target="_blank" rel="noopener">
-        <span class="cert-num">35</span>
-        <span class="cert-title">Neural Networks and Deep Learning</span>
-        <span class="cert-issuer">DeepLearning.AI</span>
-        <span class="cert-date">2024</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/certificate/CNCPQJS4KTFE" target="_blank" rel="noopener">
-        <span class="cert-num">36</span>
-        <span class="cert-title">Improving Deep Neural Networks: Hyperparameter Tuning &amp; Regularization</span>
-        <span class="cert-issuer">DeepLearning.AI</span>
-        <span class="cert-date">2024</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/verify/Z3KQ6DQXD2GM" target="_blank" rel="noopener">
-        <span class="cert-num">37</span>
-        <span class="cert-title">Structuring Machine Learning Projects</span>
-        <span class="cert-issuer">DeepLearning.AI</span>
-        <span class="cert-date">2024</span>
-      </a>
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/certificate/Y4QTHRNL3HE7" target="_blank" rel="noopener">
-        <span class="cert-num">38</span>
-        <span class="cert-title">Convolutional Neural Networks</span>
-        <span class="cert-issuer">DeepLearning.AI</span>
-        <span class="cert-date">2024</span>
-      </a>
-
-      <a class="cert hidden" data-extra="1" href="https://www.coursera.org/account/accomplishments/certificate/9PL5C8QDGYQ6" target="_blank" rel="noopener">
-        <span class="cert-num">39</span>
-        <span class="cert-title">Machine Learning</span>
-        <span class="cert-issuer">DeepLearning.AI</span>
-        <span class="cert-date">2024</span>
-      </a>
-
-    </div>
-
-    <div class="expand-row">
-      <button class="expand-btn" data-target="certifications" data-en-more="View all 39 certifications" data-en-less="Show less" data-es-more="Ver las 39 certificaciones" data-es-less="Ver menos">Ver las 39 certificaciones</button>
-    </div>
-  </div>
-</section>
-
-<footer class="site-footer" id="contact">
-  <div class="wrap">
-    <div class="footer-grid">
-      <h2 class="footer-cta">
-        <span data-en="Let's talk?">¿Hablamos?</span><br>
-        <em data-en="Drop me a line at">Escríbeme a</em><br>
-        <a href="mailto:zakariaabouhammadi@gmail.com">zakariaabouhammadi@gmail.com</a>
-      </h2>
-      <div class="footer-meta">
-        <div>Zakaria Abouhammadi</div>
-        <div data-en="Valencia, Spain · 2026">Valencia, España · 2026</div>
-        <div style="margin-top:0.8rem;">
-          <a href="https://github.com/Zakariajava" target="_blank" rel="noopener">GitHub</a>
-          &nbsp;·&nbsp;
-          <a href="https://www.linkedin.com/in/zakaria-abouhammadi-52aa5b1a0/" target="_blank" rel="noopener">LinkedIn</a>
-        </div>
-      </div>
-    </div>
-  </div>
-</footer>
-
-<script>
-(function () {
-  // --- filtros de proyectos ---
-  var filterButtons = document.querySelectorAll('.filter-btn');
-  var projects = document.querySelectorAll('.project');
-  var currentFilter = 'all';
-
-  function applyFilter() {
-    projects.forEach(function (p) {
-      var matches = currentFilter === 'all' || p.dataset.cat === currentFilter;
-      p.classList.toggle('hidden', !matches);
-    });
-  }
-
-  filterButtons.forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      currentFilter = btn.dataset.filter;
-      filterButtons.forEach(function (b) { b.classList.remove('active'); });
-      btn.classList.add('active');
-
-      var expandBtn = document.querySelector('.expand-btn[data-target="projects"]');
-      if (expandBtn && expandBtn.classList.contains('open')) {
-        applyFilter();
-      } else {
-        projects.forEach(function (p) {
-          var isExtra = p.dataset.extra === '1';
-          var matches = currentFilter === 'all' || p.dataset.cat === currentFilter;
-          p.classList.toggle('hidden', isExtra || !matches);
-        });
-      }
-    });
-  });
-
-  // --- botones de expandir (proyectos y certificaciones) ---
-  document.querySelectorAll('.expand-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      var target = btn.dataset.target;
-      var isOpen = btn.classList.toggle('open');
-      var lang = document.documentElement.lang || 'es';
-      var moreKey = lang === 'en' ? 'enMore' : 'esMore';
-      var lessKey = lang === 'en' ? 'enLess' : 'esLess';
-      btn.textContent = isOpen ? btn.dataset[lessKey] : btn.dataset[moreKey];
-
-      if (target === 'projects') {
-        projects.forEach(function (p) {
-          var isExtra = p.dataset.extra === '1';
-          var matches = currentFilter === 'all' || p.dataset.cat === currentFilter;
-          if (isOpen) {
-            p.classList.toggle('hidden', !matches);
-          } else {
-            p.classList.toggle('hidden', isExtra || !matches);
-          }
-        });
-      }
-
-      if (target === 'certifications') {
-        document.querySelectorAll('.cert[data-extra="1"]').forEach(function (c) {
-          c.classList.toggle('hidden', !isOpen);
-        });
-      }
-    });
-  });
-
-  // --- scroll suave en la navegacion ---
-  var navLinks = document.querySelectorAll('nav.top a[href^="#"]');
-  navLinks.forEach(function (link) {
-    link.addEventListener('click', function (e) {
-      var id = link.getAttribute('href').slice(1);
-      var target = document.getElementById(id);
-      if (target) {
-        e.preventDefault();
-        var offset = 70;
-        var y = target.getBoundingClientRect().top + window.pageYOffset - offset;
-        window.scrollTo({ top: y, behavior: 'smooth' });
-      }
-    });
-  });
-
-  // --- resaltado de seccion activa en el nav ---
-  var sectionIds = ['about', 'experience', 'education', 'projects', 'certifications', 'contact'];
-  var sections = sectionIds.map(function (id) { return document.getElementById(id); }).filter(Boolean);
-
-  window.addEventListener('scroll', function () {
-    var y = window.scrollY + 140;
-    var currentId = '';
-    sections.forEach(function (s) { if (s.offsetTop <= y) currentId = s.id; });
-    navLinks.forEach(function (a) {
-      a.classList.toggle('current', a.getAttribute('href') === '#' + currentId);
-    });
-  });
-
-  // --- cambio de idioma ES / EN ---
-  function setLanguage(lang) {
-    document.documentElement.lang = lang;
-
-    document.querySelectorAll('[data-en]').forEach(function (el) {
-      if (!el.hasAttribute('data-es')) {
-        el.setAttribute('data-es', el.innerHTML);
-      }
-      el.innerHTML = lang === 'en' ? el.getAttribute('data-en') : el.getAttribute('data-es');
-    });
-
-    document.querySelectorAll('.lang-btn').forEach(function (b) {
-      b.classList.toggle('active', b.dataset.lang === lang);
-    });
-
-    document.querySelectorAll('.expand-btn').forEach(function (btn) {
-      var isOpen = btn.classList.contains('open');
-      var moreKey = lang === 'en' ? 'enMore' : 'esMore';
-      var lessKey = lang === 'en' ? 'enLess' : 'esLess';
-      btn.textContent = isOpen ? btn.dataset[lessKey] : btn.dataset[moreKey];
-    });
-  }
-
-  document.querySelectorAll('.lang-btn').forEach(function (btn) {
-    btn.addEventListener('click', function () {
-      setLanguage(btn.dataset.lang);
-    });
-  });
-})();
-</script>
-
+  <div class="bg-fx"></div>
+  <div id="root"></div>
+
+  <script src="https://unpkg.com/react@18.3.1/umd/react.development.js" integrity="sha384-hD6/rw4ppMLGNu3tX5cjIb+uRZ7UkRJ6BPkLpg4hAu/6onKUg4lLsHAs9EBPT82L" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/react-dom@18.3.1/umd/react-dom.development.js" integrity="sha384-u6aeetuaXnQ38mYT8rp6sbXaQe3NL9t+IBXmnYxwkUI2Hw4bsp2Wvmx4yRQF1uAm" crossorigin="anonymous"></script>
+  <script src="https://unpkg.com/@babel/standalone@7.29.0/babel.min.js" integrity="sha384-m08KidiNqLdpJqLq95G/LEi8Qvjl/xUYll3QILypMoQ65QorJ9Lvtp2RXYGBFj1y" crossorigin="anonymous"></script>
+
+  <script type="text/babel" src="src/data.jsx"></script>
+  <script type="text/babel" src="src/icons.jsx"></script>
+  <script type="text/babel" src="src/mockups.jsx"></script>
+  <script type="text/babel" src="src/sections.jsx"></script>
+  <script type="text/babel" src="src/app.jsx"></script>
 </body>
 </html>
