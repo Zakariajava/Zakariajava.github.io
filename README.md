@@ -1,13 +1,8 @@
 # zakariajava.github.io
-
-Mi portfolio personal. HTML, CSS y un poco de JS, todo en un único `index.html`.
-
-## Sobre mí
-
-Soy **Zakaria Abouhammadi**, Machine Learning Engineer en Solver Intelligent Analytics. Trabajo con LLMs, RAG, agentes y deep learning.
-
-## Secciones
-
+My personal portfolio.
+## About me
+I'm **Zakaria Abouhammadi**, Machine Learning Engineer. I work with LLMs, RAG, agents, and deep learning.
+## Sections
 - About
 - Experience
 - Education
