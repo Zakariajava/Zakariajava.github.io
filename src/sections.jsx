@@ -20,7 +20,7 @@ function useReveal() {
 const SectionHeader = ({ h2, desc }) => {
   const ref = useReveal();
   return (
-    <div ref={ref} className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start", marginBottom: 56 }}>
+    <div ref={ref} className="reveal sec-header-grid" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 48, alignItems: "start", marginBottom: 56 }}>
       <div>
         <h2 className="display-2" style={{ color: "var(--text-primary)", maxWidth: "16ch" }}>{h2}</h2>
       </div>
@@ -39,7 +39,7 @@ const SectionAbout = ({ t, lang, data }) => {
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px", position: "relative", zIndex: 1 }}>
         <SectionHeader h2={t.s_about.h2} desc={t.s_about.desc}/>
 
-        <div ref={ref} className="reveal" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
+        <div ref={ref} className="reveal r-cols-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 16 }}>
           {/* Photo + bio */}
           <div className="card" style={{ padding: 32, display: "flex", flexDirection: "column", gap: 20 }}>
             <div style={{ display: "flex", gap: 20, alignItems: "center" }}>
@@ -103,7 +103,7 @@ const SectionExperience = ({ t }) => {
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px", position: "relative", zIndex: 1 }}>
         <SectionHeader h2={t.s_exp.h2} desc={t.s_exp.desc}/>
 
-        <div ref={ref} className="reveal card" style={{ padding: 32, display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: 40 }}>
+        <div ref={ref} className="reveal card r-cols-2" style={{ padding: 32, display: "grid", gridTemplateColumns: "1.3fr 1fr", gap: 40 }}>
           <div>
             <div style={{ display: "flex", alignItems: "center", gap: 10, marginBottom: 6 }}>
               <span className="pulse-dot" style={{ background: "var(--success)", boxShadow: "0 0 0 0 rgba(52,211,153,0.55)" }}/>
@@ -160,7 +160,7 @@ const SectionEducation = ({ t }) => {
         <SectionHeader h2={t.s_edu.h2} desc={t.s_edu.desc}/>
 
         <div ref={ref} className="reveal card" style={{ padding: 32 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
+          <div className="r-cols-2" style={{ display: "grid", gridTemplateColumns: "1fr 1fr", gap: 32 }}>
             <div>
               <div style={{ fontWeight: 600, fontSize: 22, marginBottom: 6 }}>{t.s_edu.degree}</div>
               <div style={{ color: "var(--text-secondary)", fontSize: 14 }}>{t.s_edu.org}</div>
@@ -231,7 +231,7 @@ const SectionProjects = ({ t, lang, data }) => {
           ))}
         </div>
 
-        <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: 20 }}>
+        <div className="r-grid-cards" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: 20 }}>
           {filteredFeat.map((p, i) => (
             <ProjectCard key={p.id} p={p} lang={lang} t={t} idx={i}/>
           ))}
@@ -247,7 +247,7 @@ const SectionProjects = ({ t, lang, data }) => {
             </div>
 
             {showAll && (
-              <div style={{
+              <div className="r-grid-cards" style={{
                 marginTop: 32,
                 display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(340px, 1fr))", gap: 20,
               }}>
@@ -308,7 +308,7 @@ const SectionSkills = ({ t, lang, data }) => {
       <div style={{ maxWidth: 1200, margin: "0 auto", padding: "0 32px", position: "relative", zIndex: 1 }}>
         <SectionHeader h2={t.s_skills.h2} desc={t.s_skills.desc}/>
 
-        <div ref={ref} className="reveal" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 16 }}>
+        <div ref={ref} className="reveal r-grid-cards" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 16 }}>
           {data.SKILLS.map((g, i) => (
             <div key={i} className="card" style={{ padding: 24 }}>
               <div style={{ fontWeight: 600, fontSize: 15, marginBottom: 14, color: "var(--text-primary)" }}>
@@ -344,7 +344,7 @@ const SectionCerts = ({ t, lang, data }) => {
                   {group.items.length} {lang === "es" ? "certificaciones" : "certifications"}
                 </span>
               </div>
-              <div style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 8 }}>
+              <div className="r-grid-cards" style={{ display: "grid", gridTemplateColumns: "repeat(auto-fill, minmax(320px, 1fr))", gap: 8 }}>
                 {group.items.map((c, i) => (
                   <a key={i} href={c.url} target="_blank" rel="noreferrer" className="card" style={{
                     padding: "14px 16px",
@@ -386,7 +386,7 @@ const SectionLangs = ({ t, lang, data }) => {
         <div ref={ref} className="reveal card" style={{ padding: 32 }}>
           <div style={{ display: "flex", flexDirection: "column", gap: 24 }}>
             {data.LANGS.map((l, i) => (
-              <div key={i} style={{ display: "grid", gridTemplateColumns: "180px 1fr 160px", gap: 24, alignItems: "center" }}>
+              <div key={i} className="r-langs" style={{ display: "grid", gridTemplateColumns: "180px 1fr 160px", gap: 24, alignItems: "center" }}>
                 <div style={{ fontWeight: 500, fontSize: 16 }}>{lang === "es" ? l.name_es : l.name_en}</div>
                 <div style={{ height: 2, background: "var(--bg-surface-2)", borderRadius: 999, overflow: "hidden" }}>
                   <div style={{
@@ -396,7 +396,7 @@ const SectionLangs = ({ t, lang, data }) => {
                     transition: `width 1200ms ${i*120}ms var(--ease-apple)`,
                   }}/>
                 </div>
-                <div className="mono" style={{ fontSize: 11, color: "var(--text-tertiary)", textAlign: "right", textTransform: "uppercase", letterSpacing: "0.05em" }}>{lang === "es" ? l.level_es : l.level_en}</div>
+                <div className="mono r-langs-level" style={{ fontSize: 11, color: "var(--text-tertiary)", textAlign: "right", textTransform: "uppercase", letterSpacing: "0.05em" }}>{lang === "es" ? l.level_es : l.level_en}</div>
               </div>
             ))}
           </div>
@@ -419,7 +419,7 @@ const SectionContact = ({ t, data }) => {
         <SectionHeader h2={t.s_contact.h2} desc={t.s_contact.desc}/>
 
         <div ref={ref} className="reveal card" style={{ padding: 40, display: "flex", flexDirection: "column", gap: 32 }}>
-          <div style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 40 }}>
+          <div className="r-cols-2" style={{ display: "grid", gridTemplateColumns: "1.4fr 1fr", gap: 40 }}>
             <div>
               <div className="mono" style={{ fontSize: 11, color: "var(--text-tertiary)", textTransform: "uppercase", letterSpacing: "0.06em", marginBottom: 12 }}>Email</div>
               <div style={{ display: "flex", alignItems: "center", gap: 12, flexWrap: "wrap" }}>
