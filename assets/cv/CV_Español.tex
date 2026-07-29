@@ -32,7 +32,7 @@
 
 % ----- Datos personales -------------------------------------------------
 \name{Zakaria}{Abouhammadi}
-\title{\texorpdfstring{\LARGE\bfseries Ingeniero de Aprendizaje Automático \\ \large Estudiante de Ingeniería Informática / IA aplicada}{Ingeniero de Aprendizaje Automático}}
+\title{\texorpdfstring{\Large\bfseries AI \& ML Engineer \\ \large Ingeniería Informática / IA aplicada}{AI \& ML Engineer}}
 \address{}{Valencia, España}{}
 \phone[mobile]{+34~641~381~040}
 \email{zakariaabouhammadi@gmail.com}
@@ -66,6 +66,15 @@
     }%
 }
 
+% Proyecto propietario en producción para un cliente: {nombre}{etiqueta}{stack}{descripción}
+\newcommand{\cvprojectclient}[4]{%
+    \cvitem{\textcolor{primarycolor}{\faLaptopCode}}{%
+        \textbf{\textcolor{darkcolor}{#1}}~\textcolor{lightgray}{\footnotesize\faBriefcase~#2} \\
+        \textcolor{accentcolor}{\small\textit{#3}} \\
+        \textcolor{darkcolor}{#4}%
+    }%
+}
+
 \renewcommand*{\section}[1]{%
     \par\addvspace{2.5ex}%
     {\color{sectioncolor}\rule{\textwidth}{0.8pt}}%
@@ -83,14 +92,25 @@
 % ------------------ Perfil ----------------------------------------------
 \section{\faUser~Perfil profesional}
 \cvitem{}{%
-    \textbf{Ingeniero de Aprendizaje Automático} en prácticas en \textbf{Solver Intelligent Analytics}, actualmente diseñando e implementando el subsistema de generación de documentos administrativos para el proyecto del Comú d'Encamp (Andorra), mediante un pipeline de \textbf{LangGraph} y \textbf{python-docx} sobre una instancia local de vLLM.
+    \textbf{AI \& ML Engineer} en \textbf{Solver Intelligent Analytics}, donde me incorporé al equipo tras completar las prácticas (ene--jul 2026, 560 h). Diseño y llevo a producción sistemas de IA para clientes reales: el asistente conversacional con RAG del Comú d'Encamp (Andorra), con generación de documentos administrativos mediante un pipeline de \textbf{LangGraph} y \textbf{python-docx} sobre una instancia local de vLLM, y \textbf{PPTX Updater}, una herramienta de automatización documental en producción en Food Delivery Brands (Telepizza).
     \\[0.3em]
     Estudiante de último curso de Ingeniería Informática especializado en \textbf{sistemas de IA}, \textbf{RAG avanzado} y \textbf{desarrollo backend}. Experiencia práctica construyendo \textbf{pipelines de RAG} (HyDE, MultiQuery, rerankers, Chroma Cloud), \textbf{agentes} con LangChain/LangGraph/CrewAI/AutoGen y modelos \textbf{Transformer} y \textbf{CNN} desde cero. He diseñado sistemas multiagente de debate, implementado un \textit{Vision Transformer} y desarrollado aplicaciones web escalables. Partidario de \textbf{Scrum}, con experiencia como desarrollador y Scrum Master, entregando soluciones robustas y bien documentadas.%
 }
 
+% ------------------ Educación -------------------------------------------
+\section{\faGraduationCap~Educación}
+\cventry{sep 2022 -- sep 2026\textit{ (prev.)}}{Grado en Ingeniería Informática}{Universitat de València}{Valencia, España}{}{%
+    \textit{Asignaturas destacadas:} Estructura de datos y algoritmos, Desarrollo de aplicaciones web, Sistemas inteligentes, Ingeniería del software, Bases de datos.%
+}
+
 % ------------------ Experiencia -----------------------------------------
 \section{\faBriefcase~Experiencia}
-\cventry{ene 2026 -- actualidad}{Ingeniero de Aprendizaje Automático}{Solver Intelligent Analytics}{Valencia, España}{\textit{Contrato de prácticas $\cdot$ Híbrido $\cdot$ 5 meses $\cdot$ 400 h}}{%
+\cventry{jul 2026 -- actualidad}{AI \& ML Engineer}{Solver Intelligent Analytics}{Valencia, España}{\textit{Híbrido}}{%
+    Incorporación al equipo de IA tras las prácticas. Desarrollo y evolución de sistemas de IA en producción para clientes: asistentes conversacionales con RAG multilingües, agentes sobre LLMs auto-alojados y automatización documental (Word, PowerPoint, Excel) integrada con SharePoint y Microsoft Graph.
+    \\[0.3em]
+    \textit{Stack:} Python, LangGraph, FastAPI, vLLM, Docker, React, Microsoft Graph, SharePoint, xlwings/COM, python-pptx.%
+}
+\cventry{ene 2026 -- jul 2026}{Ingeniero de Aprendizaje Automático}{Solver Intelligent Analytics}{Valencia, España}{\textit{Contrato de prácticas $\cdot$ Híbrido $\cdot$ 7 meses $\cdot$ 560 h}}{%
     Desarrollo de un asistente conversacional con RAG para el Comú d'Encamp (Andorra): un chatbot multilingüe en producción que integra distintas funcionalidades para la administración municipal. Una de las funcionalidades principales es la generación automática de pliegos de contratación pública: mediante un flujo conversacional orquestado con \textbf{LangGraph}, el sistema recoge los datos necesarios del usuario y produce el documento final en formato Word, cubriendo doce variantes según el tipo de procedimiento. El módulo cubre el flujo end-to-end: extracción y validación de datos, plantillado DOCX a nivel XML e integración con \textbf{SharePoint} vía \textbf{Microsoft Graph} para mantener sincronizadas las plantillas y ejemplos del cliente.
     \\[0.3em]
     \textit{Stack:} Python, LangGraph, python-docx, FastAPI, Docker, vLLM (Qwen3-30B), Microsoft Graph, SharePoint, RAG, prompt engineering.%
@@ -99,9 +119,11 @@
 % ------------------ Proyectos -------------------------------------------
 \section{\faLaptopCode~Proyectos}
 
+\cvprojectclient{PPTX Updater}{en producción $\cdot$ Food Delivery Brands (Telepizza)}{Python, FastAPI, xlwings/COM (win32api), python-pptx, openpyxl, React, MSAL, Microsoft Graph, SharePoint, PyInstaller, Inno Setup, pytest, Playwright}{Herramienta de automatización de escritorio, en producción en Food Delivery Brands (Telepizza), que regenera cada mes las presentaciones del consejo de dirección a partir de Excel: escanea el PowerPoint, permite al usuario mapear cada gráfico/tabla a un libro, hoja y rango de celdas, captura esos rangos como imágenes mediante un motor COM de Excel en segundo plano (exportación directa de gráficos + renderizado vectorial, capas de validación y reintentos, sin robar nunca el foco al usuario) y sustituye las formas in situ a escala natural. La identidad de cada forma sobrevive a la reutilización mes a mes (marcadores UUID incrustados en la presentación), de modo que una presentación generada sirve como plantilla del mes siguiente. Incluye backend FastAPI con UI React de una sola página, integración con SharePoint vía Microsoft Graph e inicio de sesión con Entra ID (proyectos multi-sitio/multi-biblioteca, compartición y acceso por roles) desplegada en el tenant del cliente, y distribución como instalador autónomo de Windows (PyInstaller + Inno Setup) que no requiere Python ni permisos de administrador.}
+
 \cvproject{yolo\_v1}{https://github.com/Zakariajava/yolo\_v1}{PyTorch, DDP, AMP, COCO 2017, ResNet18}{Implementación desde cero de \textbf{YOLOv1} (Redmon et al., 2016) entrenada sobre COCO 2017 con 80 clases. Dos backbones (Darknet desde cero y ResNet18 preentrenado), rejilla de detección $7\times7$ con 2 cajas por celda, loss original de cinco términos y entrenamiento distribuido (DDP) con precisión mixta (AMP); incluye 38 tests con pytest y documentación detallada de bugs silenciosos.}
 
-\cvprojectpriv{asistente-uv \textnormal{(Trabajo de Fin de Grado)}}{LangGraph, Ollama, ChromaDB, BM25, Playwright, FastAPI, React, Docker}{Asistente RAG que responde preguntas sobre la Universitat de València usando información oficial extraída de \textit{uv.es}. Combina una base local de documentos indexados con búsqueda web en tiempo real cuando la información no está disponible, y se enriquece automáticamente con cada nueva consulta. Agente ReAct sobre LangGraph con retrieval híbrido (BM25 + dense + RRF) y scraping con Playwright.}
+\cvproject{asistente-uv \textnormal{(Trabajo de Fin de Grado)}}{https://github.com/Zakariajava/asistente-uv}{LangGraph, Ollama, ChromaDB, BM25, Playwright, FastAPI, React, Docker}{Asistente RAG que responde preguntas sobre la Universitat de València usando información oficial extraída de \textit{uv.es}. Combina una base local de documentos indexados con búsqueda web en tiempo real cuando la información no está disponible, y se enriquece automáticamente con cada nueva consulta. Agente ReAct sobre LangGraph con retrieval híbrido (BM25 + dense + RRF) y scraping con Playwright.}
 
 \cvproject{CodeScribe}{https://github.com/Zakariajava/CodeScribe}{Python, LangGraph, Ollama, Click, Rich, Pydantic, uv}{Herramienta de línea de comandos que escanea un proyecto entero y añade documentación y comentarios a cada fichero fuente usando un LLM local vía Ollama. Pipeline determinista construido con LangGraph: escaneo $\rightarrow$ clasificación $\rightarrow$ chunking $\rightarrow$ LLM $\rightarrow$ post-procesado $\rightarrow$ escritura. Soporta dry-run con diff, backups, menú interactivo y generación automática de README.}
 
@@ -144,40 +166,6 @@
 \cvproject{minilang}{https://github.com/Zakariajava/minilang}{Python, PLY}{\textbf{Compilador didáctico} para MiniLang con análisis léxico, sintáctico y semántico, generación de AST y ejecución de pruebas.}
 
 \cvproject{ISII\_AdministrarHospitales}{https://github.com/Zakariajava/ISII\_AdministrarHospitales}{Java, Full-stack}{Sistema de gestión hospitalaria: historiales clínicos, inventario y control de accesos; autenticación y roles.}
-
-% ------------------ Educación -------------------------------------------
-\section{\faGraduationCap~Educación}
-\cventry{sep 2022 -- sep 2026\textit{ (prev.)}}{Grado en Ingeniería Informática}{Universitat de València}{Valencia, España}{}{%
-    \textit{Asignaturas destacadas:} Estructura de datos y algoritmos, Desarrollo de aplicaciones web, Sistemas inteligentes, Ingeniería del software, Bases de datos.%
-}
-
-% ------------------ Competencias técnicas -------------------------------
-\section{\faCode~Competencias técnicas}
-\cvitem{\textbf{\textcolor{primarycolor}{Lenguajes}}}{Python, C/C++, Java, JavaScript, HTML5, CSS3, SQL}
-\cvitem{\textbf{\textcolor{primarycolor}{IA / ML}}}{PyTorch, TensorFlow, Keras, scikit-learn, Transformers, BERT/ViT, LangChain, LangGraph, CrewAI, AutoGen, BeeAI, Ollama, vLLM}
-\cvitem{\textbf{\textcolor{primarycolor}{RAG / NLP}}}{ChromaDB (Cloud), FAISS, BM25, HyDE, MultiQuery, Reranking, Evaluación de recuperación, Prompt Engineering, Knowledge Graphs}
-\cvitem{\textbf{\textcolor{primarycolor}{Backend}}}{FastAPI, Flask, Java EE (JSP/Servlets), REST APIs, python-docx}
-\cvitem{\textbf{\textcolor{primarycolor}{Datos}}}{PostgreSQL, MySQL, SQLite, MongoDB, pandas, NumPy}
-\cvitem{\textbf{\textcolor{primarycolor}{DevOps}}}{Docker, Docker Compose, Git \& GitHub Actions, Google Cloud, Linux}
-\cvitem{\textbf{\textcolor{primarycolor}{Metodologías}}}{Scrum \textit{(desarrollador y Scrum Master)}}
-
-% ------------------ Aptitudes destacadas --------------------------------
-\section{\faCogs~Aptitudes destacadas}
-\cvitem{}{%
-    \textcolor{darkcolor}{%
-        RAG avanzado (HyDE, MultiQuery, rerankers) $\cdot$ Bases de datos vectoriales (Chroma, FAISS) $\cdot$ Agentes (LangGraph, CrewAI, AutoGen, BeeAI) $\cdot$ Transformers (BERT, ViT) $\cdot$ Redes convolucionales $\cdot$ Modelado de riesgos y pronóstico $\cdot$ Árboles de decisión $\cdot$ Análisis de imágenes $\cdot$ EDA e ingeniería de características $\cdot$ Optimización e hiperparámetros $\cdot$ Fundamentos de PyTorch $\cdot$ Generación de documentos con plantillas%
-    }%
-}
-
-% ------------------ Competencias interpersonales ------------------------
-\section{\faUsers~Competencias interpersonales}
-\cvitem{}{%
-    \textcolor{darkcolor}{%
-        Trabajo en equipo multicultural $\cdot$ Comunicación trilingüe (ES/EN/FR) $\cdot$ Pensamiento analítico $\cdot$ Gestión del tiempo $\cdot$ Aprendizaje continuo $\cdot$ Liderazgo académico%
-    }%
-}
-
-\newpage
 
 % ------------------ Certificaciones -------------------------------------
 \section{\faCertificate~Certificaciones y cursos}
@@ -233,6 +221,32 @@
 \cvcert{Feb 2025}{\textbf{Introduction to HTML5} --- Univ. Michigan}{ID: B9898ISXJUTR}
 \cvcert{Feb 2025}{\textbf{Introduction to Networking} --- NVIDIA}{ID: AUQMCFVGVRP0}
 \cvcert{Feb 2025}{\textbf{AI Infrastructure and Operations Fundamentals} --- NVIDIA}{ID: NFNQ1HP3ODGH}
+
+% ------------------ Competencias técnicas -------------------------------
+\section{\faCode~Competencias técnicas}
+\cvitem{\textbf{\textcolor{primarycolor}{Lenguajes}}}{Python, C/C++, Java, JavaScript, HTML5, CSS3, SQL}
+\cvitem{\textbf{\textcolor{primarycolor}{IA / ML}}}{PyTorch, TensorFlow, Keras, scikit-learn, Transformers, BERT/ViT, LangChain, LangGraph, CrewAI, AutoGen, BeeAI, Ollama, vLLM}
+\cvitem{\textbf{\textcolor{primarycolor}{RAG / NLP}}}{ChromaDB (Cloud), FAISS, BM25, HyDE, MultiQuery, Reranking, Evaluación de recuperación, Prompt Engineering, Knowledge Graphs}
+\cvitem{\textbf{\textcolor{primarycolor}{Backend}}}{FastAPI, Flask, Java EE (JSP/Servlets), REST APIs, python-docx, python-pptx, openpyxl, xlwings/COM}
+\cvitem{\textbf{\textcolor{primarycolor}{Datos}}}{PostgreSQL, MySQL, SQLite, MongoDB, pandas, NumPy}
+\cvitem{\textbf{\textcolor{primarycolor}{DevOps}}}{Docker, Docker Compose, Git \& GitHub Actions, Google Cloud, Linux, PyInstaller, Inno Setup}
+\cvitem{\textbf{\textcolor{primarycolor}{Metodologías}}}{Scrum \textit{(desarrollador y Scrum Master)}}
+
+% ------------------ Aptitudes destacadas --------------------------------
+\section{\faCogs~Aptitudes destacadas}
+\cvitem{}{%
+    \textcolor{darkcolor}{%
+        RAG avanzado (HyDE, MultiQuery, rerankers) $\cdot$ Bases de datos vectoriales (Chroma, FAISS) $\cdot$ Agentes (LangGraph, CrewAI, AutoGen, BeeAI) $\cdot$ Transformers (BERT, ViT) $\cdot$ Redes convolucionales $\cdot$ Modelado de riesgos y pronóstico $\cdot$ Árboles de decisión $\cdot$ Análisis de imágenes $\cdot$ EDA e ingeniería de características $\cdot$ Optimización e hiperparámetros $\cdot$ Fundamentos de PyTorch $\cdot$ Generación de documentos con plantillas%
+    }%
+}
+
+% ------------------ Competencias interpersonales ------------------------
+\section{\faUsers~Competencias interpersonales}
+\cvitem{}{%
+    \textcolor{darkcolor}{%
+        Trabajo en equipo multicultural $\cdot$ Comunicación trilingüe (ES/EN/FR) $\cdot$ Pensamiento analítico $\cdot$ Gestión del tiempo $\cdot$ Aprendizaje continuo $\cdot$ Liderazgo académico%
+    }%
+}
 
 % ------------------ Idiomas ---------------------------------------------
 \section{\faLanguage~Idiomas}

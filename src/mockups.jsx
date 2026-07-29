@@ -14,6 +14,40 @@ const PALETTES = {
 
 // SVG dispatcher. Each function gets (glow) and returns an SVG body.
 const ART = {
+  // ── Production / client tools ──────────────────────────────────────────
+  "pptx-updater": (g) => (
+    <svg viewBox="0 0 320 180" style={{ width: "100%", height: "100%" }}>
+      {/* Excel range (source) */}
+      <rect x="16" y="30" width="108" height="86" rx="8" fill="rgba(8,8,12,0.55)" stroke="rgba(255,255,255,0.1)"/>
+      <text x="26" y="46" fontFamily="JetBrains Mono" fontSize="9" fill="#34D399">ventas.xlsx</text>
+      {[0,1,2,3].map(r => [0,1,2].map(c => (
+        <rect key={`${r}-${c}`} x={26 + c*30} y={54 + r*13} width="26" height="9" rx="2"
+          fill={r === 0 ? "rgba(52,211,153,0.28)" : "rgba(255,255,255,0.05)"}
+          stroke="rgba(255,255,255,0.07)"/>
+      )))}
+      <rect x="24" y="52" width="92" height="40" rx="3" fill="none" stroke="#34D399" strokeDasharray="4 3"/>
+      <text x="26" y="112" fontFamily="JetBrains Mono" fontSize="8" fill="#6B6B73">B2:D5 → png</text>
+      {/* arrow */}
+      <line x1="130" y1="73" x2="168" y2="73" stroke={g} strokeWidth="1.4"/>
+      <path d="M164 68 172 73 164 78" fill="none" stroke={g} strokeWidth="1.4"/>
+      {/* PPTX slide (target) */}
+      <rect x="178" y="22" width="126" height="102" rx="8" fill="rgba(8,8,12,0.55)" stroke="rgba(255,255,255,0.1)"/>
+      <rect x="188" y="32" width="70" height="8" rx="2" fill="rgba(255,255,255,0.14)"/>
+      {[0,1,2,3].map(i => (
+        <rect key={i} x={190 + i*22} y={92 - [28,44,36,54][i]} width="15" height={[28,44,36,54][i]} rx="2"
+          fill={g} fillOpacity={0.4 + i*0.14}/>
+      ))}
+      <rect x="186" y="46" width="88" height="52" rx="3" fill="none" stroke={g} strokeDasharray="4 3"/>
+      <text x="188" y="114" fontFamily="JetBrains Mono" fontSize="8" fill="#6B6B73">deck_junio.pptx</text>
+      {/* UUID marker tag */}
+      <g className="pulse">
+        <rect x="216" y="126" width="88" height="16" rx="8" fill={`${g}1f`} stroke={`${g}55`}/>
+        <text x="224" y="137" fontFamily="JetBrains Mono" fontSize="8" fill="#F5F5F7">uuid:7f3a…e2</text>
+      </g>
+      <text x="16" y="164" fontFamily="JetBrains Mono" fontSize="9" fill="#6B6B73">xlwings · win32com · python-pptx · sharepoint</text>
+    </svg>
+  ),
+
   // ── LLMs / Agents / RAG ────────────────────────────────────────────────
   "asistente-uv": (g) => (
     <svg viewBox="0 0 320 180" style={{ width: "100%", height: "100%" }}>
@@ -24,8 +58,10 @@ const ART = {
       <text x="44" y="83" fontFamily="Inter" fontSize="11" fill="#A1A1AA">¿Plazos de matrícula?</text>
       <rect x="80" y="100" width="204" height="22" rx="6" fill={`${g}26`} stroke={`${g}66`}/>
       <text x="88" y="115" fontFamily="Inter" fontSize="11" fill="#F5F5F7">→ retrieval híbrido · BM25 + dense</text>
-      <rect x="80" y="128" width="204" height="22" rx="6" fill={`${g}1f`} stroke={`${g}55`}/>
-      <text x="88" y="143" fontFamily="Inter" fontSize="11" fill="#F5F5F7">✓ respuesta con cita oficial</text>
+      <g className="pulse">
+        <rect x="80" y="128" width="204" height="22" rx="6" fill={`${g}1f`} stroke={`${g}55`}/>
+        <text x="88" y="143" fontFamily="Inter" fontSize="11" fill="#F5F5F7">✓ respuesta con cita oficial</text>
+      </g>
     </svg>
   ),
 
@@ -38,7 +74,7 @@ const ART = {
       <text x="36" y="96" fontFamily="JetBrains Mono" fontSize="9" fill="#A1A1AA">• 142 files · 38 .py · 12 .js</text>
       <text x="36" y="112" fontFamily="JetBrains Mono" fontSize="9" fill="#A1A1AA">• model: ollama / llama3</text>
       <text x="36" y="128" fontFamily="JetBrains Mono" fontSize="9" fill="#5EE7DF">✓ docs written · README.md</text>
-      <text x="36" y="146" fontFamily="JetBrains Mono" fontSize="9" fill={g}>▍</text>
+      <text x="36" y="146" fontFamily="JetBrains Mono" fontSize="9" fill={g} className="pulse">▍</text>
     </svg>
   ),
 
@@ -237,8 +273,8 @@ const ART = {
       ))}
       <text x="160" y="100" textAnchor="middle" fontFamily="Inter" fontSize="13" fill="#A1A1AA">Tifinagh ▸ CNN classifier</text>
       <rect x="60" y="118" width="200" height="6" rx="3" fill="rgba(255,255,255,0.06)"/>
-      <rect x="60" y="118" width="172" height="6" rx="3" fill={g}/>
-      <text x="60" y="148" fontFamily="JetBrains Mono" fontSize="9" fill="#6B6B73">accuracy · 86% · data augmentation</text>
+      <rect x="60" y="118" width="186" height="6" rx="3" fill={g}/>
+      <text x="60" y="148" fontFamily="JetBrains Mono" fontSize="9" fill="#6B6B73">test accuracy · 92.9% · data augmentation</text>
     </svg>
   ),
 
@@ -453,8 +489,9 @@ const ART = {
 const ProjectArt = ({ id, accent = "violet", height = 180 }) => {
   const p = PALETTES[accent] || PALETTES.violet;
   const render = ART[id];
+  const liveRef = window.FX.useArtLive();
   return (
-    <div style={{
+    <div ref={liveRef} className="proj-art" style={{
       position: "relative", height, borderRadius: 14, overflow: "hidden",
       background: `linear-gradient(135deg, ${p.from} 0%, ${p.to} 100%)`,
       border: "1px solid var(--border-soft)",

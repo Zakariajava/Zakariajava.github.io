@@ -32,7 +32,7 @@
 
 % ----- Personal Data ----------------------------------------------------
 \name{Zakaria}{Abouhammadi}
-\title{\texorpdfstring{\LARGE\bfseries Machine Learning Engineer \\ \large Computer Science Student / Applied AI}{Machine Learning Engineer}}
+\title{\texorpdfstring{\Large\bfseries AI \& ML Engineer \\ \large Computer Science / Applied AI}{AI \& ML Engineer}}
 \address{}{Valencia, Spain}{}
 \phone[mobile]{+34~641~381~040}
 \email{zakariaabouhammadi@gmail.com}
@@ -66,6 +66,15 @@
     }%
 }
 
+% Proprietary project in production for a client: {name}{tag}{stack}{description}
+\newcommand{\cvprojectclient}[4]{%
+    \cvitem{\textcolor{primarycolor}{\faLaptopCode}}{%
+        \textbf{\textcolor{darkcolor}{#1}}~\textcolor{lightgray}{\footnotesize\faBriefcase~#2} \\
+        \textcolor{accentcolor}{\small\textit{#3}} \\
+        \textcolor{darkcolor}{#4}%
+    }%
+}
+
 \renewcommand*{\section}[1]{%
     \par\addvspace{2.5ex}%
     {\color{sectioncolor}\rule{\textwidth}{0.8pt}}%
@@ -83,14 +92,25 @@
 % ------------------ Profile ---------------------------------------------
 \section{\faUser~Professional Profile}
 \cvitem{}{%
-    \textbf{Machine Learning Engineer} intern at \textbf{Solver Intelligent Analytics}, currently designing and building the document generation subsystem for the Comú d'Encamp (Andorra) project, using a \textbf{LangGraph} pipeline and \textbf{python-docx} on top of a self-hosted vLLM instance.
+    \textbf{AI \& ML Engineer} at \textbf{Solver Intelligent Analytics}, where I joined the team after completing my internship (Jan--Jul 2026, 560 h). I design and ship AI systems to production for real clients: the conversational RAG assistant for the Comú d'Encamp (Andorra), with administrative document generation built on a \textbf{LangGraph} pipeline and \textbf{python-docx} on top of a self-hosted vLLM instance, and \textbf{PPTX Updater}, a document automation tool in production at Food Delivery Brands (Telepizza).
     \\[0.3em]
     Final-year Computer Science student specialized in \textbf{AI systems}, \textbf{advanced RAG} and \textbf{backend development}. Hands-on experience building \textbf{RAG pipelines} (HyDE, MultiQuery, rerankers, Chroma Cloud), \textbf{agents} with LangChain/LangGraph/CrewAI/AutoGen and \textbf{Transformer} and \textbf{CNN} models from scratch. Designed multi-agent debate systems, implemented a \textit{Vision Transformer}, and developed scalable web applications. Advocate of \textbf{Scrum}, with experience as developer and Scrum Master, delivering robust and well-documented solutions.%
 }
 
+% ------------------ Education -------------------------------------------
+\section{\faGraduationCap~Education}
+\cventry{Sep 2022 -- Sep 2026\textit{ (expected)}}{Bachelor's Degree in Computer Science Engineering}{Universitat de València}{Valencia, Spain}{}{%
+    \textit{Key subjects:} Data structures and algorithms, Web application development, Intelligent systems, Software engineering, Databases.%
+}
+
 % ------------------ Experience ------------------------------------------
 \section{\faBriefcase~Experience}
-\cventry{Jan 2026 -- Present}{Machine Learning Engineer}{Solver Intelligent Analytics}{Valencia, Spain}{\textit{Internship contract $\cdot$ Hybrid $\cdot$ 5 months $\cdot$ 400 h}}{%
+\cventry{Jul 2026 -- Present}{AI \& ML Engineer}{Solver Intelligent Analytics}{Valencia, Spain}{\textit{Hybrid}}{%
+    Joined the AI team after the internship. Building and evolving production AI systems for clients: multilingual conversational RAG assistants, agents on self-hosted LLMs, and document automation (Word, PowerPoint, Excel) integrated with SharePoint and Microsoft Graph.
+    \\[0.3em]
+    \textit{Stack:} Python, LangGraph, FastAPI, vLLM, Docker, React, Microsoft Graph, SharePoint, xlwings/COM, python-pptx.%
+}
+\cventry{Jan 2026 -- Jul 2026}{Machine Learning Engineer}{Solver Intelligent Analytics}{Valencia, Spain}{\textit{Internship contract $\cdot$ Hybrid $\cdot$ 7 months $\cdot$ 560 h}}{%
     Built a conversational RAG assistant for the Comú d'Encamp (Andorra): a multilingual production chatbot integrating multiple functionalities for the municipal administration. One of the main features is the automatic generation of public procurement documents: through a guided conversational flow orchestrated with \textbf{LangGraph}, the system collects the required information from the user and produces the final Word document, covering twelve variants depending on the procedure type. The module covers the end-to-end flow: data extraction and validation, XML-level DOCX templating, and integration with \textbf{SharePoint} via \textbf{Microsoft Graph} to keep the client's templates and examples synchronized.
     \\[0.3em]
     \textit{Stack:} Python, LangGraph, python-docx, FastAPI, Docker, vLLM (Qwen3-30B), Microsoft Graph, SharePoint, RAG, prompt engineering.%
@@ -99,9 +119,11 @@
 % ------------------ Projects --------------------------------------------
 \section{\faLaptopCode~Projects}
 
+\cvprojectclient{PPTX Updater}{in production $\cdot$ Food Delivery Brands (Telepizza)}{Python, FastAPI, xlwings/COM (win32api), python-pptx, openpyxl, React, MSAL, Microsoft Graph, SharePoint, PyInstaller, Inno Setup, pytest, Playwright}{Desktop automation tool used in production by Food Delivery Brands (Telepizza) to regenerate monthly board decks from Excel: the tool scans the PowerPoint, lets the user map each chart/table to a workbook, sheet and cell range, captures those ranges as images through a background Excel COM engine (direct chart export + vector rendering, validation and retry layers, never stealing the user's focus), and replaces the shapes in place at natural scale. Shape identity survives month-over-month reuse (UUID markers embedded in the deck), so a generated presentation can serve as next month's template. Includes a FastAPI backend with a single-page React UI, SharePoint integration via Microsoft Graph with Entra ID sign-in (multi-site/multi-library projects, sharing and role-based access) deployed live on the client's tenant, and delivery as a self-contained Windows installer (PyInstaller + Inno Setup) requiring no Python or admin rights.}
+
 \cvproject{yolo\_v1}{https://github.com/Zakariajava/yolo\_v1}{PyTorch, DDP, AMP, COCO 2017, ResNet18}{From-scratch implementation of \textbf{YOLOv1} (Redmon et al., 2016) trained on COCO 2017 with 80 classes. Two backbones (Darknet from scratch and pretrained ResNet18), $7\times7$ detection grid with 2 boxes per cell, the original five-term loss and distributed training (DDP) with mixed precision (AMP); ships 38 pytest tests and a detailed write-up of silent bugs.}
 
-\cvprojectpriv{asistente-uv \textnormal{(Bachelor's Thesis)}}{LangGraph, Ollama, ChromaDB, BM25, Playwright, FastAPI, React, Docker}{RAG assistant that answers questions about the University of Valencia using official information extracted from \textit{uv.es}. Combines a local document store with real-time web search when information is missing, and grows automatically with each new query. ReAct-style agent on LangGraph with hybrid retrieval (BM25 + dense + RRF) and Playwright-based scraping.}
+\cvproject{asistente-uv \textnormal{(Bachelor's Thesis)}}{https://github.com/Zakariajava/asistente-uv}{LangGraph, Ollama, ChromaDB, BM25, Playwright, FastAPI, React, Docker}{RAG assistant that answers questions about the University of Valencia using official information extracted from \textit{uv.es}. Combines a local document store with real-time web search when information is missing, and grows automatically with each new query. ReAct-style agent on LangGraph with hybrid retrieval (BM25 + dense + RRF) and Playwright-based scraping.}
 
 \cvproject{CodeScribe}{https://github.com/Zakariajava/CodeScribe}{Python, LangGraph, Ollama, Click, Rich, Pydantic, uv}{CLI tool that scans an entire project and adds documentation and comments to every source file using a local LLM via Ollama. Deterministic LangGraph pipeline: scan $\rightarrow$ classify $\rightarrow$ chunk $\rightarrow$ LLM $\rightarrow$ post-process $\rightarrow$ write back. Supports dry-run with diff, backups, interactive menu and automatic README generation.}
 
@@ -144,40 +166,6 @@
 \cvproject{minilang}{https://github.com/Zakariajava/minilang}{Python, PLY}{Educational compiler for MiniLang with lexical, syntactic and semantic analysis, AST generation and test execution.}
 
 \cvproject{ISII\_AdministrarHospitales}{https://github.com/Zakariajava/ISII\_AdministrarHospitales}{Java, Full-stack}{Hospital management system: medical records, inventory and access control; authentication and roles.}
-
-% ------------------ Education -------------------------------------------
-\section{\faGraduationCap~Education}
-\cventry{Sep 2022 -- Sep 2026\textit{ (expected)}}{Bachelor's Degree in Computer Science Engineering}{Universitat de València}{Valencia, Spain}{}{%
-    \textit{Key subjects:} Data structures and algorithms, Web application development, Intelligent systems, Software engineering, Databases.%
-}
-
-% ------------------ Technical Skills ------------------------------------
-\section{\faCode~Technical Skills}
-\cvitem{\textbf{\textcolor{primarycolor}{Languages}}}{Python, C/C++, Java, JavaScript, HTML5, CSS3, SQL}
-\cvitem{\textbf{\textcolor{primarycolor}{AI / ML}}}{PyTorch, TensorFlow, Keras, scikit-learn, Transformers, BERT/ViT, LangChain, LangGraph, CrewAI, AutoGen, BeeAI, Ollama, vLLM}
-\cvitem{\textbf{\textcolor{primarycolor}{RAG / NLP}}}{ChromaDB (Cloud), FAISS, BM25, HyDE, MultiQuery, Reranking, Retrieval Evaluation, Prompt Engineering, Knowledge Graphs}
-\cvitem{\textbf{\textcolor{primarycolor}{Backend}}}{FastAPI, Flask, Java EE (JSP/Servlets), REST APIs, python-docx}
-\cvitem{\textbf{\textcolor{primarycolor}{Data}}}{PostgreSQL, MySQL, SQLite, MongoDB, pandas, NumPy}
-\cvitem{\textbf{\textcolor{primarycolor}{DevOps}}}{Docker, Docker Compose, Git \& GitHub Actions, Google Cloud, Linux}
-\cvitem{\textbf{\textcolor{primarycolor}{Methodologies}}}{Scrum \textit{(developer and Scrum Master)}}
-
-% ------------------ Highlighted Skills ----------------------------------
-\section{\faCogs~Highlighted Skills}
-\cvitem{}{%
-    \textcolor{darkcolor}{%
-        Advanced RAG (HyDE, MultiQuery, rerankers) $\cdot$ Vector databases (Chroma, FAISS) $\cdot$ Agents (LangGraph, CrewAI, AutoGen, BeeAI) $\cdot$ Transformers (BERT, ViT) $\cdot$ Convolutional networks $\cdot$ Risk modeling and forecasting $\cdot$ Decision trees $\cdot$ Image analysis $\cdot$ EDA \& Feature engineering $\cdot$ Optimization \& hyperparameters $\cdot$ PyTorch fundamentals $\cdot$ Document generation with templates%
-    }%
-}
-
-% ------------------ Soft Skills -----------------------------------------
-\section{\faUsers~Soft Skills}
-\cvitem{}{%
-    \textcolor{darkcolor}{%
-        Multicultural teamwork $\cdot$ Trilingual communication (ES/EN/FR) $\cdot$ Analytical thinking $\cdot$ Time management $\cdot$ Continuous learning $\cdot$ Academic leadership%
-    }%
-}
-
-\newpage
 
 % ------------------ Certifications --------------------------------------
 \section{\faCertificate~Certifications \& Courses}
@@ -233,6 +221,32 @@
 \cvcert{Feb 2025}{\textbf{Introduction to HTML5} --- Univ. Michigan}{ID: B9898ISXJUTR}
 \cvcert{Feb 2025}{\textbf{Introduction to Networking} --- NVIDIA}{ID: AUQMCFVGVRP0}
 \cvcert{Feb 2025}{\textbf{AI Infrastructure and Operations Fundamentals} --- NVIDIA}{ID: NFNQ1HP3ODGH}
+
+% ------------------ Technical Skills ------------------------------------
+\section{\faCode~Technical Skills}
+\cvitem{\textbf{\textcolor{primarycolor}{Languages}}}{Python, C/C++, Java, JavaScript, HTML5, CSS3, SQL}
+\cvitem{\textbf{\textcolor{primarycolor}{AI / ML}}}{PyTorch, TensorFlow, Keras, scikit-learn, Transformers, BERT/ViT, LangChain, LangGraph, CrewAI, AutoGen, BeeAI, Ollama, vLLM}
+\cvitem{\textbf{\textcolor{primarycolor}{RAG / NLP}}}{ChromaDB (Cloud), FAISS, BM25, HyDE, MultiQuery, Reranking, Retrieval Evaluation, Prompt Engineering, Knowledge Graphs}
+\cvitem{\textbf{\textcolor{primarycolor}{Backend}}}{FastAPI, Flask, Java EE (JSP/Servlets), REST APIs, python-docx, python-pptx, openpyxl, xlwings/COM}
+\cvitem{\textbf{\textcolor{primarycolor}{Data}}}{PostgreSQL, MySQL, SQLite, MongoDB, pandas, NumPy}
+\cvitem{\textbf{\textcolor{primarycolor}{DevOps}}}{Docker, Docker Compose, Git \& GitHub Actions, Google Cloud, Linux, PyInstaller, Inno Setup}
+\cvitem{\textbf{\textcolor{primarycolor}{Methodologies}}}{Scrum \textit{(developer and Scrum Master)}}
+
+% ------------------ Highlighted Skills ----------------------------------
+\section{\faCogs~Highlighted Skills}
+\cvitem{}{%
+    \textcolor{darkcolor}{%
+        Advanced RAG (HyDE, MultiQuery, rerankers) $\cdot$ Vector databases (Chroma, FAISS) $\cdot$ Agents (LangGraph, CrewAI, AutoGen, BeeAI) $\cdot$ Transformers (BERT, ViT) $\cdot$ Convolutional networks $\cdot$ Risk modeling and forecasting $\cdot$ Decision trees $\cdot$ Image analysis $\cdot$ EDA \& Feature engineering $\cdot$ Optimization \& hyperparameters $\cdot$ PyTorch fundamentals $\cdot$ Document generation with templates%
+    }%
+}
+
+% ------------------ Soft Skills -----------------------------------------
+\section{\faUsers~Soft Skills}
+\cvitem{}{%
+    \textcolor{darkcolor}{%
+        Multicultural teamwork $\cdot$ Trilingual communication (ES/EN/FR) $\cdot$ Analytical thinking $\cdot$ Time management $\cdot$ Continuous learning $\cdot$ Academic leadership%
+    }%
+}
 
 % ------------------ Languages -------------------------------------------
 \section{\faLanguage~Languages}

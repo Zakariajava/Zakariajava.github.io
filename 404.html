@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="UTF-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1.0" />
+<title>404 — Zakaria Abouhammadi</title>
+<meta name="robots" content="noindex" />
+<link rel="icon" type="image/jpeg" href="assets/photo/imagen.jpeg" />
+<link rel="preconnect" href="https://fonts.googleapis.com" />
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=JetBrains+Mono:wght@400;500&family=Instrument+Serif:ital@1&display=swap" rel="stylesheet" />
+<style>
+  :root {
+    --bg: #09080F; --ink: #F5F3FA; --muted: #8D89A0; --dim: #605D70;
+    --accent: #8B7CFF; --border: rgba(255,255,255,0.12);
+  }
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html, body { height: 100%; }
+  body {
+    background: linear-gradient(180deg, #09080F 0%, #060510 100%);
+    color: var(--ink);
+    font-family: "Inter", -apple-system, sans-serif;
+    letter-spacing: -0.011em;
+    display: grid; place-items: center;
+    padding: 24px; text-align: center;
+    -webkit-font-smoothing: antialiased;
+  }
+  .glow {
+    position: fixed; inset: 0; pointer-events: none;
+    background: radial-gradient(38% 50% at 50% 30%, rgba(139,124,255,0.12) 0%, transparent 100%);
+  }
+  .num {
+    font-family: "Instrument Serif", Georgia, serif; font-style: italic;
+    font-size: clamp(120px, 30vw, 280px); line-height: 0.9;
+    color: transparent; -webkit-text-stroke: 1.5px rgba(255,255,255,0.25);
+    user-select: none;
+  }
+  p { color: var(--muted); font-size: 17px; margin-top: 18px; max-width: 44ch; }
+  .mono { font-family: "JetBrains Mono", monospace; font-size: 11px; letter-spacing: 0.1em; text-transform: uppercase; color: var(--dim); margin-top: 8px; }
+  a.back {
+    display: inline-flex; align-items: center; gap: 8px;
+    margin-top: 36px; padding: 12px 22px; border-radius: 999px;
+    border: 1px solid var(--border); color: var(--ink);
+    font-size: 14px; font-weight: 500; text-decoration: none;
+    transition: background 200ms ease, border-color 200ms ease;
+  }
+  a.back:hover { background: rgba(255,255,255,0.05); border-color: rgba(255,255,255,0.25); }
+  ::selection { background: var(--accent); color: #fff; }
+</style>
+</head>
+<body>
+  <div class="glow"></div>
+  <main>
+    <div class="num">404</div>
+    <p>Esta página no existe. Puede que el enlace haya cambiado. / This page doesn't exist. The link may have moved.</p>
+    <div class="mono">GET /? · 404 · zakariajava.github.io</div>
+    <a class="back" href="/">← zakariajava.github.io</a>
+  </main>
+</body>
+</html>

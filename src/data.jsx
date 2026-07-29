@@ -4,55 +4,46 @@
 const i18n = {
   es: {
     nav: {
-      home: "Inicio",
       about: "Sobre mí",
-      experience: "Experiencia",
       education: "Educación",
+      experience: "Experiencia",
       projects: "Proyectos",
       skills: "Skills",
       certs: "Certificaciones",
       languages: "Idiomas",
       contact: "Contacto",
+      menu: "Menú",
+      close: "Cerrar",
     },
     hero: {
-      pill: "Portfolio · Valencia, ES",
+      pill: "AI & ML Engineer · Solver Intelligent Analytics",
       name: "Zakaria",
       surname: "Abouhammadi",
-      role: "Machine Learning Engineer",
-      bio: "Estudiante de último curso del Grado en Ingeniería Informática en la ETSE de la Universitat de València. Actualmente Machine Learning Engineer en prácticas en Solver Intelligent Analytics, construyendo sistemas reales de IA con LLMs, RAG y agentes para la administración pública.",
+      role: "AI & ML Engineer",
+      tagline: ["Sistemas de IA que llegan a producción,", "no se quedan en el notebook."],
+      bio: "Asistentes conversacionales con RAG, agentes sobre LLMs auto-alojados y automatización documental para clientes reales. Desde julio de 2026 en Solver Intelligent Analytics, compaginándolo con el último curso de Ingeniería Informática en la Universitat de València.",
       ctaPrimary: "Ver proyectos",
       ctaSecondary: "Descargar CV",
+      location: "Valencia, España",
+      scroll: "Baja para ver más",
     },
     s_about: {
-      h2: "Construyendo sistemas de IA con propósito real.",
-      desc: "Estudiante de último curso, todavía aprendiendo, pero con la cabeza puesta en montar cosas que de verdad funcionen y acaben en producción: LLMs, RAG, agentes. Me preocupa que el pipeline esté bien pensado, que lo que sale se pueda evaluar y que las decisiones queden documentadas para el siguiente que toque el código.",
-      cardBio: "Compagino el último curso del grado con las prácticas en Solver y mucho trabajo autodidacta. La mayoría de lo que sé de LLMs y RAG viene de construir proyectos, romperlos y entender por qué fallan.",
+      h2: "Sistemas de IA con propósito real.",
+      desc: "Lo que más me importa es que las cosas funcionen fuera del notebook: que el pipeline esté bien pensado, que lo que sale se pueda evaluar y que las decisiones queden documentadas para el siguiente que toque el código.",
+      cardBio: "Empecé 2026 de prácticas en Solver y lo acabo contratado como AI & ML Engineer. Casi todo lo que sé de LLMs y RAG viene de construir proyectos, romperlos y entender por qué fallan.",
       stats: [
         { n: "30", l: "Proyectos" },
         { n: "39", l: "Certificaciones" },
-        { n: "400h", l: "Prácticas en Solver" },
+        { n: "2", l: "Sistemas en producción" },
         { n: "5", l: "Idiomas" },
       ],
     },
-    s_exp: {
-      h2: "Construyendo sistemas reales de IA en Solver Intelligent Analytics.",
-      desc: "Asistente conversacional con RAG para el Comú d'Encamp (Andorra): chatbot multilingüe en producción para la administración municipal, con generación automática de pliegos de contratación pública.",
-      role: "Machine Learning Engineer · Prácticas",
-      org: "Solver Intelligent Analytics",
-      where: "Valencia · Híbrido",
-      when: "ene 2026 — actualidad · 5 meses · 400 h",
-      desc_long: "Desarrollo de un asistente conversacional con RAG para el Comú d'Encamp (Andorra): un chatbot multilingüe en producción que integra distintas funcionalidades para la administración municipal. Una de las funcionalidades principales es la generación automática de pliegos de contratación pública: mediante un flujo conversacional orquestado con LangGraph, el sistema recoge los datos necesarios del usuario y produce el documento final en formato Word, cubriendo doce variantes según el tipo de procedimiento. El módulo cubre el flujo end-to-end: extracción y validación de datos, plantillado DOCX a nivel XML e integración con SharePoint vía Microsoft Graph para mantener sincronizadas las plantillas y ejemplos del cliente.",
-      pipelineLabel: "PIPELINE",
-      pipeline: ["Conversación guiada", "Validación de datos", "Plantillado DOCX (XML)", "SharePoint · Graph"],
-      stackLabel: "Stack",
-      active: "En activo",
-    },
     s_edu: {
       h2: "Universitat de València · Ingeniería Informática.",
-      desc: "Último curso del grado, compaginado con prácticas curriculares y extracurriculares en Solver y formación autodidacta continua en LLMs, RAG, agentes, PyTorch y stacks modernos de backend.",
+      desc: "Último curso del grado, compaginado con el trabajo en Solver. El TFG —asistente-uv, un agente RAG sobre información oficial de la universidad— ya es público en GitHub.",
       degree: "Grado en Ingeniería Informática",
       org: "Universitat de València · Escola Tècnica Superior d'Enginyeria (ETSE)",
-      when: "sep 2022 — sep 2026 · 4 años",
+      when: "sep 2022 — sep 2026",
       subjects: [
         "Estructura de datos y algoritmos",
         "Sistemas inteligentes",
@@ -62,6 +53,14 @@ const i18n = {
         "Desarrollo de aplicaciones web",
       ],
       highlights: "Asignaturas destacadas",
+      tfgLabel: "Trabajo de Fin de Grado",
+      tfgName: "asistente-uv · agente RAG",
+    },
+    s_exp: {
+      h2: "De las prácticas al contrato, en el mismo equipo.",
+      desc: "Siete meses de prácticas construyendo el asistente del Comú d'Encamp; desde el 31 de julio de 2026, AI & ML Engineer en plantilla en Solver Intelligent Analytics.",
+      activeLabel: "En activo",
+      pipelineLabel: "Pipeline",
     },
     s_proj: {
       h2: "Una selección de proyectos.",
@@ -71,6 +70,7 @@ const i18n = {
       seeMore: "Ver el archivo completo",
       seeLess: "Ver menos",
       privateRepo: "Repositorio privado",
+      proprietaryLabel: "Software propietario · en producción",
       viewRepo: "Ver repositorio",
     },
     s_skills: {
@@ -81,6 +81,7 @@ const i18n = {
       h2: "39 certificaciones, todas verificables.",
       desc: "DeepLearning.AI, IBM, Google Cloud, Packt, NVIDIA y University of Michigan. Cada tarjeta enlaza al certificado en Coursera.",
       verify: "Ver certificado",
+      countLabel: "certificaciones",
     },
     s_langs: {
       h2: "Cinco idiomas, dos nativos.",
@@ -88,68 +89,69 @@ const i18n = {
     },
     s_contact: {
       h2: "Hablamos.",
-      desc: "Estoy abierto a oportunidades en IA/ML, sobre todo LLMs, RAG y sistemas agénticos. Si buscas alguien que combine investigación aplicada con producción real, escríbeme.",
+      desc: "Ahora mismo estoy centrado en mi trabajo en Solver, pero siempre respondo: LLMs, RAG, sistemas agénticos, o cualquier proyecto interesante que tengas entre manos.",
       copy: "Copiar email",
       copied: "Copiado",
       cvEs: "CV (Español)",
       cvEn: "CV (English)",
+      emailLabel: "Email",
     },
+    // Short verbs that ride inside the cursor ring on hover.
+    cursor: { view: "Ver", open: "Abrir", copy: "Copiar", cert: "Verificar", top: "Arriba" },
+    keys: { theme: "Tema", lang: "Idioma", mono: "Monocromo", hint: "Atajos" },
     footer: {
-      copy: "Zakaria Abouhammadi · Valencia, España · 2026",
+      copy: "© 2026 Zakaria Abouhammadi",
+      localTime: "Hora local",
+      version: "Edición",
+      versionValue: "2026 · Valencia",
+      colophon: "Inter, Instrument Serif y JetBrains Mono · React 18 sin build (Babel en el navegador) · GitHub Pages",
+      backToTop: "Volver arriba",
+      socials: "Redes",
     },
   },
 
   en: {
     nav: {
-      home: "Home",
       about: "About",
-      experience: "Experience",
       education: "Education",
+      experience: "Experience",
       projects: "Projects",
       skills: "Skills",
       certs: "Certifications",
       languages: "Languages",
       contact: "Contact",
+      menu: "Menu",
+      close: "Close",
     },
     hero: {
-      pill: "Portfolio · Valencia, ES",
+      pill: "AI & ML Engineer · Solver Intelligent Analytics",
       name: "Zakaria",
       surname: "Abouhammadi",
-      role: "Machine Learning Engineer",
-      bio: "Final-year Computer Science Engineering student at the School of Engineering (ETSE) of the University of Valencia. Currently Machine Learning Engineer intern at Solver Intelligent Analytics, building real AI systems with LLMs, RAG and agents for public administration.",
+      role: "AI & ML Engineer",
+      tagline: ["AI systems that ship to production,", "not stay in the notebook."],
+      bio: "Conversational RAG assistants, agents on self-hosted LLMs and document automation for real clients. At Solver Intelligent Analytics since July 2026, alongside the final year of my Computer Science degree at the University of Valencia.",
       ctaPrimary: "View projects",
       ctaSecondary: "Download CV",
+      location: "Valencia, Spain",
+      scroll: "Scroll to explore",
     },
     s_about: {
-      h2: "Building AI systems with real-world purpose.",
-      desc: "Final-year CS student, still learning, but focused on building things that actually run in production: LLMs, RAG, agents. I care about pipelines being well thought out, outputs being measurable, and decisions being documented for whoever picks up the code next.",
-      cardBio: "I combine the final year of my degree with the internship at Solver and a lot of self-driven work. Most of what I know about LLMs and RAG comes from building projects, breaking them and figuring out why they fail.",
+      h2: "AI systems with real-world purpose.",
+      desc: "What I care about most is that things work outside the notebook: pipelines that are well thought out, outputs that can be measured, and decisions documented for whoever picks up the code next.",
+      cardBio: "I started 2026 as an intern at Solver and ended up hired as an AI & ML Engineer. Most of what I know about LLMs and RAG comes from building projects, breaking them and figuring out why they fail.",
       stats: [
         { n: "30", l: "Projects" },
         { n: "39", l: "Certifications" },
-        { n: "400h", l: "Internship at Solver" },
+        { n: "2", l: "Systems in production" },
         { n: "5", l: "Languages" },
       ],
     },
-    s_exp: {
-      h2: "Building real AI systems at Solver Intelligent Analytics.",
-      desc: "Conversational RAG assistant for the Comú d'Encamp (Andorra): a multilingual production chatbot for the municipal administration, with automatic generation of public procurement documents.",
-      role: "Machine Learning Engineer · Internship",
-      org: "Solver Intelligent Analytics",
-      where: "Valencia · Hybrid",
-      when: "Jan 2026 — Present · 5 months · 400 h",
-      desc_long: "Built a conversational RAG assistant for the Comú d'Encamp (Andorra): a multilingual production chatbot integrating multiple functionalities for the municipal administration. One of the main features is the automatic generation of public procurement documents: through a guided conversational flow orchestrated with LangGraph, the system collects the required information from the user and produces the final Word document, covering twelve variants depending on the procedure type. The module covers the end-to-end flow: data extraction and validation, XML-level DOCX templating, and SharePoint integration via Microsoft Graph to keep the client's templates and examples synchronized.",
-      pipelineLabel: "PIPELINE",
-      pipeline: ["Guided conversation", "Data validation", "DOCX templating (XML)", "SharePoint · Graph"],
-      stackLabel: "Stack",
-      active: "Currently working",
-    },
     s_edu: {
       h2: "University of Valencia · Computer Science Engineering.",
-      desc: "Final year of the degree, combined with curricular and extracurricular internships at Solver and continuous self-taught training on LLMs, RAG, agents, PyTorch and modern backend stacks.",
+      desc: "Final year of the degree, combined with my work at Solver. My thesis project, asistente-uv (a RAG agent over official university information), is now public on GitHub.",
       degree: "BSc in Computer Science Engineering",
       org: "Universitat de València · School of Engineering (ETSE)",
-      when: "Sep 2022 — Sep 2026 · 4 years",
+      when: "Sep 2022 — Sep 2026",
       subjects: [
         "Data Structures & Algorithms",
         "Intelligent Systems",
@@ -159,6 +161,14 @@ const i18n = {
         "Web Development",
       ],
       highlights: "Highlighted subjects",
+      tfgLabel: "Bachelor's Thesis",
+      tfgName: "asistente-uv · RAG agent",
+    },
+    s_exp: {
+      h2: "From internship to full-time, same team.",
+      desc: "Seven months of internship building the Comú d'Encamp assistant; since July 31, 2026, AI & ML Engineer on staff at Solver Intelligent Analytics.",
+      activeLabel: "Currently working",
+      pipelineLabel: "Pipeline",
     },
     s_proj: {
       h2: "Selected work.",
@@ -168,6 +178,7 @@ const i18n = {
       seeMore: "View full archive",
       seeLess: "Show less",
       privateRepo: "Private repository",
+      proprietaryLabel: "Proprietary software · in production",
       viewRepo: "View repo",
     },
     s_skills: {
@@ -178,6 +189,7 @@ const i18n = {
       h2: "39 certifications, all verifiable.",
       desc: "DeepLearning.AI, IBM, Google Cloud, Packt, NVIDIA and University of Michigan. Each card links to the Coursera certificate.",
       verify: "View certificate",
+      countLabel: "certifications",
     },
     s_langs: {
       h2: "Five languages, two native.",
@@ -185,24 +197,84 @@ const i18n = {
     },
     s_contact: {
       h2: "Let's talk.",
-      desc: "I'm open to opportunities in AI/ML, especially LLMs, RAG and agentic systems. If you're looking for someone who pairs applied research with real production, reach out.",
+      desc: "These days I'm focused on my work at Solver, but I always reply: LLMs, RAG, agentic systems, or any interesting project you're working on.",
       copy: "Copy email",
       copied: "Copied",
       cvEs: "CV (Spanish)",
       cvEn: "CV (English)",
+      emailLabel: "Email",
     },
+    cursor: { view: "View", open: "Open", copy: "Copy", cert: "Verify", top: "Top" },
+    keys: { theme: "Theme", lang: "Language", mono: "Monochrome", hint: "Shortcuts" },
     footer: {
-      copy: "Zakaria Abouhammadi · Valencia, Spain · 2026",
+      copy: "© 2026 Zakaria Abouhammadi",
+      localTime: "Local time",
+      version: "Edition",
+      versionValue: "2026 · Valencia",
+      colophon: "Inter, Instrument Serif & JetBrains Mono · React 18 with no build step (in-browser Babel) · GitHub Pages",
+      backToTop: "Back to top",
+      socials: "Socials",
     },
   },
 };
 
+// ─── Experience (newest first) ────────────────────────────────────────────
+const EXPERIENCE = [
+  {
+    id: "solver-engineer",
+    current: true,
+    org: "Solver Intelligent Analytics",
+    role_es: "AI & ML Engineer",
+    role_en: "AI & ML Engineer",
+    where_es: "Valencia · Híbrido",
+    where_en: "Valencia · Hybrid",
+    when_es: "jul 2026 — actualidad",
+    when_en: "Jul 2026 — Present",
+    type_es: "Contrato laboral",
+    type_en: "Full-time",
+    desc_es: "Incorporado al equipo de IA tras las prácticas. Desarrollo y evolución de sistemas en producción para clientes: asistentes conversacionales con RAG multilingües, agentes sobre LLMs auto-alojados y automatización documental (Word, PowerPoint, Excel) integrada con SharePoint y Microsoft Graph.",
+    desc_en: "Joined the AI team after the internship. Building and evolving production systems for clients: multilingual conversational RAG assistants, agents on self-hosted LLMs, and document automation (Word, PowerPoint, Excel) integrated with SharePoint and Microsoft Graph.",
+    stack: ["Python", "LangGraph", "FastAPI", "vLLM", "Docker", "React", "Microsoft Graph", "SharePoint", "xlwings/COM", "python-pptx"],
+  },
+  {
+    id: "solver-intern",
+    current: false,
+    org: "Solver Intelligent Analytics",
+    role_es: "Machine Learning Engineer · Prácticas",
+    role_en: "Machine Learning Engineer · Internship",
+    where_es: "Valencia · Híbrido",
+    where_en: "Valencia · Hybrid",
+    when_es: "ene 2026 — jul 2026",
+    when_en: "Jan 2026 — Jul 2026",
+    type_es: "7 meses · 560 h",
+    type_en: "7 months · 560 h",
+    desc_es: "Desarrollo de un asistente conversacional con RAG para el Comú d'Encamp (Andorra): un chatbot multilingüe en producción que integra distintas funcionalidades para la administración municipal. Una de las principales es la generación automática de pliegos de contratación pública: mediante un flujo conversacional orquestado con LangGraph, el sistema recoge los datos necesarios del usuario y produce el documento final en formato Word, cubriendo doce variantes según el tipo de procedimiento. El módulo cubre el flujo end-to-end: extracción y validación de datos, plantillado DOCX a nivel XML e integración con SharePoint vía Microsoft Graph para mantener sincronizadas las plantillas y ejemplos del cliente.",
+    desc_en: "Built a conversational RAG assistant for the Comú d'Encamp (Andorra): a multilingual production chatbot integrating multiple functionalities for the municipal administration. One of the main features is the automatic generation of public procurement documents: through a guided conversational flow orchestrated with LangGraph, the system collects the required information from the user and produces the final Word document, covering twelve variants depending on the procedure type. The module covers the end-to-end flow: data extraction and validation, XML-level DOCX templating, and SharePoint integration via Microsoft Graph to keep the client's templates and examples synchronized.",
+    stack: ["Python", "LangGraph", "python-docx", "FastAPI", "Docker", "vLLM (Qwen3-30B)", "Microsoft Graph", "SharePoint", "RAG"],
+    pipeline_es: ["Conversación guiada", "Validación de datos", "Plantillado DOCX (XML)", "SharePoint · Graph"],
+    pipeline_en: ["Guided conversation", "Data validation", "DOCX templating (XML)", "SharePoint · Graph"],
+  },
+];
+
 // ─── Projects ─────────────────────────────────────────────────────────────
-// 28 public + 1 private (asistente-uv, TFG) = 29 total
+// 29 public + 1 proprietary (PPTX Updater, client production) = 30 total
 // `featured: true` shows in the top grid; the rest go to the full archive.
 // `accent` only drives the card art palette.
 
 const PROJECTS = [
+  {
+    id: "pptx-updater",
+    name: "PPTX Updater",
+    subtitle: "Desktop Automation · In Production",
+    cat: "sys",
+    desc_es: "Herramienta de escritorio en producción en Food Delivery Brands (Telepizza): regenera cada mes las presentaciones del consejo a partir de Excel. Escanea el PowerPoint, permite mapear cada gráfico o tabla a un libro, hoja y rango de celdas, captura esos rangos como imágenes con un motor COM de Excel en segundo plano (exportación directa de gráficos, renderizado vectorial, validación y reintentos, sin robar nunca el foco) y sustituye las formas in situ a escala natural. Marcadores UUID incrustados hacen que cada presentación generada sirva de plantilla del mes siguiente. Backend FastAPI con UI React, SharePoint vía Microsoft Graph con Entra ID desplegado en el tenant del cliente, e instalador de Windows autónomo (PyInstaller + Inno Setup) que no requiere Python ni permisos de administrador.",
+    desc_en: "Desktop tool in production at Food Delivery Brands (Telepizza): regenerates monthly board decks from Excel. It scans the PowerPoint, lets the user map each chart or table to a workbook, sheet and cell range, captures those ranges as images through a background Excel COM engine (direct chart export, vector rendering, validation and retry layers, never stealing focus) and replaces the shapes in place at natural scale. Embedded UUID markers let every generated deck serve as next month's template. FastAPI backend with a React UI, SharePoint via Microsoft Graph with Entra ID sign-in deployed on the client's tenant, and a self-contained Windows installer (PyInstaller + Inno Setup) requiring no Python or admin rights.",
+    stack: ["Python", "FastAPI", "xlwings/COM", "python-pptx", "openpyxl", "React", "MSAL", "Microsoft Graph", "SharePoint", "PyInstaller", "Inno Setup", "pytest", "Playwright"],
+    href: null,
+    proprietary: true,
+    accent: "cyan",
+    featured: true,
+  },
   {
     id: "yolo-v1",
     name: "yolo_v1",
@@ -219,12 +291,13 @@ const PROJECTS = [
     id: "asistente-uv",
     name: "asistente-uv",
     subtitle: "TFG · RAG Agent",
+    subtitle_es: "TFG · Agente RAG",
+    subtitle_en: "Thesis · RAG Agent",
     cat: "llm",
     desc_es: "Mi Trabajo de Fin de Grado: un asistente RAG que responde preguntas sobre la Universitat de València usando información oficial extraída de uv.es. Combina una base local de documentos indexados con búsqueda web en tiempo real cuando la información no está disponible, y se enriquece automáticamente con cada consulta. Agente ReAct sobre LangGraph con retrieval híbrido (BM25 + dense + RRF) y scraping con Playwright.",
     desc_en: "My Bachelor's final project: a RAG assistant that answers questions about the University of Valencia using official information extracted from uv.es. It combines a local document store with real-time web search when information is missing, and grows automatically with every new query. ReAct-style agent on LangGraph with hybrid retrieval (BM25 + dense + RRF) and Playwright-based scraping.",
     stack: ["LangGraph", "Ollama", "ChromaDB", "BM25", "Playwright", "FastAPI", "React", "Docker"],
-    href: null,
-    privateRepo: true,
+    href: "https://github.com/Zakariajava/asistente-uv",
     accent: "violet",
     featured: true,
   },
@@ -542,9 +615,9 @@ const SKILLS = [
   { title_es: "IA / ML",          title_en: "AI / ML",         items: ["PyTorch", "TensorFlow", "Keras", "scikit-learn", "XGBoost", "Transformers", "ViT", "CNNs"] },
   { title_es: "LLMs / Agents",    title_en: "LLMs / Agents",   items: ["LangChain", "LangGraph", "Ollama", "vLLM", "Qwen3", "ReAct"] },
   { title_es: "RAG / Retrieval",  title_en: "RAG / Retrieval", items: ["ChromaDB", "FAISS", "BM25", "Dense Embeddings", "RRF", "HyDE", "MultiQuery", "Cross-Encoder Reranking", "Knowledge Graphs"] },
-  { title_es: "Backend",          title_en: "Backend",         items: ["FastAPI", "Flask", "Java EE (JSP/Servlets)", "REST APIs", "python-docx", "Microsoft Graph", "SharePoint", "TCP Sockets"] },
+  { title_es: "Backend",          title_en: "Backend",         items: ["FastAPI", "Flask", "Java EE (JSP/Servlets)", "REST APIs", "python-docx", "python-pptx", "openpyxl", "xlwings/COM", "Microsoft Graph", "SharePoint", "TCP Sockets"] },
   { title_es: "Datos",            title_en: "Data",            items: ["pandas", "NumPy", "Geopandas", "Imbalanced-learn", "Surprise", "PostgreSQL", "MySQL", "SQLite", "MongoDB"] },
-  { title_es: "DevOps / Sistemas",title_en: "DevOps / Systems",items: ["Docker", "Docker Compose", "Git", "GitHub Actions", "Linux", "OpenGL", "Selenium", "Playwright"] },
+  { title_es: "DevOps / Sistemas",title_en: "DevOps / Systems",items: ["Docker", "Docker Compose", "Git", "GitHub Actions", "Linux", "PyInstaller", "Inno Setup", "OpenGL", "Selenium", "Playwright"] },
 ];
 
 // ─── Certifications (39, individually verifiable on Coursera) ─────────────
@@ -641,12 +714,13 @@ const CERTS = [
 ];
 
 // ─── Languages ────────────────────────────────────────────────────────────
+// `code` is the small mono badge (CEFR level or NAT for native).
 const LANGS = [
-  { name_es: "Bereber",  name_en: "Berber",  level_es: "Nativo",            level_en: "Native",            pct: 100 },
-  { name_es: "Árabe",    name_en: "Arabic",  level_es: "Nativo",            level_en: "Native",            pct: 100 },
-  { name_es: "Español",  name_en: "Spanish", level_es: "C1-C2 · Profesional", level_en: "C1-C2 · Professional", pct: 95  },
-  { name_es: "Inglés",   name_en: "English", level_es: "B2-C1 · Profesional", level_en: "B2-C1 · Professional", pct: 86  },
-  { name_es: "Francés",  name_en: "French",  level_es: "B2 · Profesional",    level_en: "B2 · Professional",    pct: 70  },
+  { code: "NAT",   name_es: "Bereber",  name_en: "Berber",  level_es: "Nativo",                 level_en: "Native" },
+  { code: "NAT",   name_es: "Árabe",    name_en: "Arabic",  level_es: "Nativo",                 level_en: "Native" },
+  { code: "C1-C2", name_es: "Español",  name_en: "Spanish", level_es: "Competencia profesional completa", level_en: "Full professional" },
+  { code: "B2-C1", name_es: "Inglés",   name_en: "English", level_es: "Competencia profesional completa", level_en: "Full professional" },
+  { code: "B2",    name_es: "Francés",  name_en: "French",  level_es: "Competencia profesional",          level_en: "Professional working" },
 ];
 
 // ─── Contact ──────────────────────────────────────────────────────────────
@@ -662,12 +736,14 @@ const CONTACT = {
 
 // ─── Keep the About stats in sync with the actual data ───────────────────
 // stats[0] = projects, stats[1] = certifications, stats[3] = languages.
-// stats[2] (internship hours) stays hardcoded — not derivable.
+// stats[2] (systems in production) stays hardcoded — not derivable.
 const _totalCerts = CERTS.reduce((sum, g) => sum + g.items.length, 0);
 [i18n.es, i18n.en].forEach(L => {
+  // The headline leads with the same number, so derive it too.
+  L.s_certs.h2 = L.s_certs.h2.replace(/^\d+/, String(_totalCerts));
   L.s_about.stats[0].n = String(PROJECTS.length);
   L.s_about.stats[1].n = String(_totalCerts);
   L.s_about.stats[3].n = String(LANGS.length);
 });
 
-window.PORTFOLIO_DATA = { i18n, PROJECTS, SKILLS, CERTS, LANGS, CONTACT };
+window.PORTFOLIO_DATA = { i18n, EXPERIENCE, PROJECTS, SKILLS, CERTS, LANGS, CONTACT };
